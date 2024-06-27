@@ -1,0 +1,374 @@
+[
+    {
+        "id": "2dd030032b7c13db",
+        "type": "tab",
+        "label": "SoilMoistureYL69",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "15e349498e9a67fb",
+        "type": "mqtt in",
+        "z": "2dd030032b7c13db",
+        "name": "",
+        "topic": "humedsuelo/sensoryl69",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "37ad725e9b6374df",
+                "b154f472ab091e44",
+                "31bf84aab86545cb",
+                "7d80b0f9828b21ca",
+                "b48fff0d4f4544c0"
+            ]
+        ]
+    },
+    {
+        "id": "37ad725e9b6374df",
+        "type": "ui_gauge",
+        "z": "2dd030032b7c13db",
+        "name": "",
+        "group": "ada62c3ea453fd65",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad del Suelo",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b154f472ab091e44",
+        "type": "ui_chart",
+        "z": "2dd030032b7c13db",
+        "name": "",
+        "group": "ada62c3ea453fd65",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Humedad del Suelo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 490,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31bf84aab86545cb",
+        "type": "change",
+        "z": "2dd030032b7c13db",
+        "name": "set Global HumedadSuelo",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humedadSuelo",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d80b0f9828b21ca",
+        "type": "function",
+        "z": "2dd030032b7c13db",
+        "name": "insert humedadSuelo",
+        "func": "var humedadSuelo =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(humedadSuelo),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "3c7052224a96b731"
+            ]
+        ]
+    },
+    {
+        "id": "3c7052224a96b731",
+        "type": "influxdb out",
+        "z": "2dd030032b7c13db",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio humedadSuelo",
+        "measurement": "humedadSuelo",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "TestHumedadSuelo",
+        "x": 780,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d1e2f3g4h5i6",
+        "type": "telegram receiver",
+        "z": "2dd030032b7c13db",
+        "name": "Telegram Receiver",
+        "bot": "426ccebbe959ebd3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e1f2g3h4i5j6",
+        "type": "telegram command",
+        "z": "2dd030032b7c13db",
+        "name": "/humedadSuelo",
+        "command": "/humedadSuelo",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "f1g2h3i4j5k6"
+            ]
+        ]
+    },
+    {
+        "id": "f1g2h3i4j5k6",
+        "type": "function",
+        "z": "2dd030032b7c13db",
+        "name": "Send Humidity",
+        "func": "let humedadSuelo = global.get('humedadSuelo') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content: `La humedad del suelo es: ${humedadSuelo}` + `%`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 480,
+        "wires": [
+            [
+                "g1h2i3j4k5l6"
+            ]
+        ]
+    },
+    {
+        "id": "g1h2i3j4k5l6",
+        "type": "telegram sender",
+        "z": "2dd030032b7c13db",
+        "name": "send soil humidity",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b48fff0d4f4544c0",
+        "type": "function",
+        "z": "2dd030032b7c13db",
+        "name": "Check HumedadSuelo",
+        "func": "let humedadSuelo = parseFloat(msg.payload);\nif (humedadSuelo < 50) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La humedad del suelo es baja: ${humedadSuelo}%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "35ec8e7b987c2031"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "35ec8e7b987c2031",
+        "type": "telegram sender",
+        "z": "2dd030032b7c13db",
+        "name": "send notification low soil humidity",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 820,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "273b668ebd561ad9",
+        "type": "comment",
+        "z": "2dd030032b7c13db",
+        "name": "ESP8266 MQTT Humedad Suelo YL69",
+        "info": "",
+        "x": 170,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.17",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ada62c3ea453fd65",
+        "type": "ui_group",
+        "name": "Sensores",
+        "tab": "97a08c24.f79cb",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "426ccebbe959ebd3",
+        "type": "telegram bot",
+        "botname": "iotBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "97a08c24.f79cb",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

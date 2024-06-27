@@ -1,0 +1,374 @@
+[
+    {
+        "id": "9a4f5b92ef2bd785",
+        "type": "tab",
+        "label": "LDR",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "5bc9d5f157d40e03",
+        "type": "mqtt in",
+        "z": "9a4f5b92ef2bd785",
+        "name": "",
+        "topic": "luz/sensorldr",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "070e2dee10e19043",
+                "7836d885cc8fd29e",
+                "bb6eeadc8e3fdc0a",
+                "bdcad751fef47392",
+                "0b4315455bc3bdd9"
+            ]
+        ]
+    },
+    {
+        "id": "070e2dee10e19043",
+        "type": "ui_gauge",
+        "z": "9a4f5b92ef2bd785",
+        "name": "",
+        "group": "c4b926c4c11884e5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luz",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "25",
+        "max": "900",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "250",
+        "seg2": "750",
+        "diff": false,
+        "className": "",
+        "x": 430,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7836d885cc8fd29e",
+        "type": "ui_chart",
+        "z": "9a4f5b92ef2bd785",
+        "name": "",
+        "group": "c4b926c4c11884e5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Luz",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "25",
+        "ymax": "900",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 430,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2cea0a142087c9f",
+        "type": "comment",
+        "z": "9a4f5b92ef2bd785",
+        "name": "ESP8266 MQTT Luz LDR",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bb6eeadc8e3fdc0a",
+        "type": "change",
+        "z": "9a4f5b92ef2bd785",
+        "name": "set Global luz",
+        "rules": [
+            {
+                "t": "set",
+                "p": "luz",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bdcad751fef47392",
+        "type": "function",
+        "z": "9a4f5b92ef2bd785",
+        "name": "insert luz",
+        "func": "var luz =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(luz),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "aa2764f810390031"
+            ]
+        ]
+    },
+    {
+        "id": "aa2764f810390031",
+        "type": "influxdb out",
+        "z": "9a4f5b92ef2bd785",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio luz",
+        "measurement": "luz",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "TestLuz",
+        "x": 720,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3d833c5db8356b2a",
+        "type": "telegram receiver",
+        "z": "9a4f5b92ef2bd785",
+        "name": "Telegram Receiver",
+        "bot": "426ccebbe959ebd3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 470,
+        "y": 420,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "378570d761403e83",
+        "type": "telegram command",
+        "z": "9a4f5b92ef2bd785",
+        "name": "/luz",
+        "command": "/luz",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "c57065d2c745a648"
+            ]
+        ]
+    },
+    {
+        "id": "c57065d2c745a648",
+        "type": "function",
+        "z": "9a4f5b92ef2bd785",
+        "name": "Send Humidity",
+        "func": "let luz = global.get('luz') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content: `El valor de luz es: ${luz}`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 420,
+        "wires": [
+            [
+                "cf53bc9e0a441681"
+            ]
+        ]
+    },
+    {
+        "id": "cf53bc9e0a441681",
+        "type": "telegram sender",
+        "z": "9a4f5b92ef2bd785",
+        "name": "send luz",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1050,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b4315455bc3bdd9",
+        "type": "function",
+        "z": "9a4f5b92ef2bd785",
+        "name": "Check Humidity",
+        "func": "let luz = parseFloat(msg.payload);\nif (luz < 250) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La luz es baja: ${luz}`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "ef5412753f8769bc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ef5412753f8769bc",
+        "type": "telegram sender",
+        "z": "9a4f5b92ef2bd785",
+        "name": "send notification low luz",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.17",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c4b926c4c11884e5",
+        "type": "ui_group",
+        "name": "SensorLuz",
+        "tab": "a8a1f90a655cbfb5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "426ccebbe959ebd3",
+        "type": "telegram bot",
+        "botname": "iotBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "a8a1f90a655cbfb5",
+        "type": "ui_tab",
+        "name": "Tab3",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
