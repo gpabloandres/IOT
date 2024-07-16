@@ -3,7 +3,7 @@
 
 const char* ssid = "ASP"; // Reemplaza con tu SSID
 const char* password = "ASP110110"; // Reemplaza con tu contraseña
-const char* mqtt_server = "192.168.1.12"; // Reemplaza con la IP o dirección de tu servidor MQTT
+const char* mqtt_server = "192.168.1.17"; // Reemplaza con la IP o dirección de tu servidor MQTT
 
 WiFiClient espClient;
 PubSubClient client(espClient);
