@@ -4,7 +4,7 @@
 
 // Definiciones y constantes
 #define DHTTYPE DHT11
-#define DHTPin 4
+#define DHTPin 4  // Pin sensor de temperatura y humedad aire
 #define PUMP_PIN 0  // Pin de la bomba de agua
 #define LED_PIN LED_BUILTIN  // LED interno del ESP8266
 
@@ -146,7 +146,7 @@ void loop() {
     Serial.println(" ºC");
 
     // Controlar la bomba de agua según la humedad
-    if (humidity < 21) {
+    if (humidity < 29) {
       digitalWrite(PUMP_PIN, HIGH);  // Encender la bomba
       Serial.println("Bomba de agua encendida");
     } else {

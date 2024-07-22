@@ -1,0 +1,419 @@
+[
+    {
+        "id": "493b08a6f6b3a0d6",
+        "type": "tab",
+        "label": "DSB1820",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "e8f575c6f281d60b",
+        "type": "comment",
+        "z": "493b08a6f6b3a0d6",
+        "name": "ESP8266 MQTT Temperature Líquido DS18B20 ",
+        "info": "",
+        "x": 200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e54fe0ed6733baa9",
+        "type": "mqtt in",
+        "z": "493b08a6f6b3a0d6",
+        "name": "",
+        "topic": "templiquid/sensordsb1820",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "47997aa0d3c6394f",
+                "fea7ae16ea83821a",
+                "a173203eb76f8b47",
+                "b112cc120c3126e3",
+                "1c93f1e84409894a",
+                "37dd14989edfc868"
+            ]
+        ]
+    },
+    {
+        "id": "47997aa0d3c6394f",
+        "type": "ui_gauge",
+        "z": "493b08a6f6b3a0d6",
+        "name": "",
+        "group": "eee8469aea44d19c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura Liquido",
+        "label": "�C",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "75",
+        "diff": false,
+        "className": "",
+        "x": 500,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fea7ae16ea83821a",
+        "type": "ui_chart",
+        "z": "493b08a6f6b3a0d6",
+        "name": "5  Min",
+        "group": "eee8469aea44d19c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "5  Min",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "%H:%M:%S",
+        "interpolate": "linear",
+        "nodata": "5  Min",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a173203eb76f8b47",
+        "type": "ui_chart",
+        "z": "493b08a6f6b3a0d6",
+        "name": "1  Hour",
+        "group": "eee8469aea44d19c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "1  Hour",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "%H:%M:%S",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b112cc120c3126e3",
+        "type": "change",
+        "z": "493b08a6f6b3a0d6",
+        "name": "set global TEMPLíquido",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TEMPLiquido",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c93f1e84409894a",
+        "type": "function",
+        "z": "493b08a6f6b3a0d6",
+        "name": "insert temperaturaLiquido",
+        "func": "var temperaturaLiquido =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(temperaturaLiquido),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "366a43e0d355c698"
+            ]
+        ]
+    },
+    {
+        "id": "366a43e0d355c698",
+        "type": "influxdb out",
+        "z": "493b08a6f6b3a0d6",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio temperaturaLiquido",
+        "measurement": "temperaturaLiquido",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "TestTemperaturaLiquido",
+        "x": 810,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "26e8d033bce3e705",
+        "type": "telegram receiver",
+        "z": "493b08a6f6b3a0d6",
+        "name": "Telegram Receiver",
+        "bot": "426ccebbe959ebd3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 490,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ae7c2bce1fb0ed77",
+        "type": "telegram command",
+        "z": "493b08a6f6b3a0d6",
+        "name": "/temperaturaLiquido",
+        "command": "/temperaturaLiquido",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 440,
+        "wires": [
+            [
+                "5cb3f5893ee93fdc"
+            ]
+        ]
+    },
+    {
+        "id": "5cb3f5893ee93fdc",
+        "type": "function",
+        "z": "493b08a6f6b3a0d6",
+        "name": "Send Humidity",
+        "func": "let temperaturaLiquido = global.get('temperaturaLiquido') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content: `La temperatura del líquido es: ${temperaturaLiquido}` + `%`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 440,
+        "wires": [
+            [
+                "93e41985ac04a875"
+            ]
+        ]
+    },
+    {
+        "id": "93e41985ac04a875",
+        "type": "telegram sender",
+        "z": "493b08a6f6b3a0d6",
+        "name": "send temperaturaLiquido",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1190,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37dd14989edfc868",
+        "type": "function",
+        "z": "493b08a6f6b3a0d6",
+        "name": "Check temperaturaLiquido",
+        "func": "let humedadSuelo = parseFloat(msg.payload);\nif (humedadSuelo < 50) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La humedad del suelo es baja: ${humedadSuelo}%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 380,
+        "wires": [
+            [
+                "3a79bec2d1f29392"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3a79bec2d1f29392",
+        "type": "telegram sender",
+        "z": "493b08a6f6b3a0d6",
+        "name": "send notification low temperaturaLiquido",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.17",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "eee8469aea44d19c",
+        "type": "ui_group",
+        "name": "DSB1820",
+        "tab": "7ccfb6d319a9dbab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "426ccebbe959ebd3",
+        "type": "telegram bot",
+        "botname": "iotBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "7ccfb6d319a9dbab",
+        "type": "ui_tab",
+        "name": "TempLiquido",
+        "icon": "dashboard",
+        "order": 8,
+        "disabled": false,
+        "hidden": false
+    }
+]

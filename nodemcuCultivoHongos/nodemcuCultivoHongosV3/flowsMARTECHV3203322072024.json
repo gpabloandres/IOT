@@ -1,0 +1,1005 @@
+[
+    {
+        "id": "1b2174702613692c",
+        "type": "tab",
+        "label": "MARTECH",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0b472252afdb513",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "tempaire/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "06eece4b56d14be2",
+                "d74acbcb1ea85a42",
+                "24fba83f20c19300",
+                "71aecc1ea5ce684a",
+                "af5a2ffaa0cee6cd"
+            ]
+        ]
+    },
+    {
+        "id": "06eece4b56d14be2",
+        "type": "ui_chart",
+        "z": "1b2174702613692c",
+        "name": "Temperatura Aire",
+        "group": "92a9cd27.99b9d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c35b478a91a3e26",
+        "type": "comment",
+        "z": "1b2174702613692c",
+        "name": "ESP8266 MQTT Temperatura Humedad Aire DHT11",
+        "info": "",
+        "x": 230,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d74acbcb1ea85a42",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24fba83f20c19300",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "",
+        "group": "92a9cd27.99b9d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "0",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2bde28890dff3dc4",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "humidity/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 700,
+        "wires": [
+            [
+                "f68ccdf2b1098bcc",
+                "1856070b05c72791",
+                "8c99e5d9dae166f9",
+                "51ed92ac6c35de59",
+                "672ef5117edbcd47",
+                "90036b3eb194855c"
+            ]
+        ]
+    },
+    {
+        "id": "f68ccdf2b1098bcc",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "Humedad Aire",
+        "group": "00fd71d20afe50e3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b3d9",
+            "#0073e6",
+            "#001bd7"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "1856070b05c72791",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humedAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c99e5d9dae166f9",
+        "type": "ui_chart",
+        "z": "1b2174702613692c",
+        "name": "",
+        "group": "00fd71d20afe50e3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71aecc1ea5ce684a",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "insert tempAire",
+        "func": "var tempAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(tempAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "882997976aba3026"
+            ]
+        ]
+    },
+    {
+        "id": "882997976aba3026",
+        "type": "influxdb out",
+        "z": "1b2174702613692c",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio tempAire",
+        "measurement": "temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "381e1d5b2f5a970d",
+        "type": "telegram receiver",
+        "z": "1b2174702613692c",
+        "name": "Telegram Receiver",
+        "bot": "426ccebbe959ebd3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5864c4ad1e7e94e4",
+        "type": "telegram command",
+        "z": "1b2174702613692c",
+        "name": "/tempAire",
+        "command": "/tempAire",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "2b24dbbef00e8fd4"
+            ]
+        ]
+    },
+    {
+        "id": "2b24dbbef00e8fd4",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Send Temperatura Aire",
+        "func": "let tempAire = global.get('tempAire') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content: `El valor de la temperatura del aire es: ${tempAire}` + `°C`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 460,
+        "wires": [
+            [
+                "6debeecb902eb052"
+            ]
+        ]
+    },
+    {
+        "id": "6debeecb902eb052",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "send tempAire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af5a2ffaa0cee6cd",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Check TemperaturaAire",
+        "func": "let tempAire = parseFloat(msg.payload);\nif (tempAire < 20) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La temperatura del aire es baja: ${tempAire}`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "31fba061ad7cdaed"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4a6003093729790b",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "send notification low tempAire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51ed92ac6c35de59",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "insert humedAire",
+        "func": "var humedAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(humedAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 940,
+        "wires": [
+            [
+                "a89f542cfe7e1fc9"
+            ]
+        ]
+    },
+    {
+        "id": "a89f542cfe7e1fc9",
+        "type": "influxdb out",
+        "z": "1b2174702613692c",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio humedAire",
+        "measurement": "humedad",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 730,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "ee94f8a8d03c5539",
+        "type": "telegram command",
+        "z": "1b2174702613692c",
+        "name": "/humedAire",
+        "command": "/humedAire",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 1080,
+        "wires": [
+            [
+                "00780f5916dec639"
+            ]
+        ]
+    },
+    {
+        "id": "00780f5916dec639",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Send Humedad Aire",
+        "func": "let humedAire = global.get('humedAire') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content: `El valor de la humedad del aire es: ${humedAire}` + `%`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 1080,
+        "wires": [
+            [
+                "d25fdfe4e56d898b"
+            ]
+        ]
+    },
+    {
+        "id": "d25fdfe4e56d898b",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "send humedAire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "672ef5117edbcd47",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Check Humedad Aire",
+        "func": "let humedAire = parseFloat(msg.payload);\nif (humedAire < 20) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La humedad del aire es baja: ${humedAire}` + `%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1020,
+        "wires": [
+            [
+                "ab36feb688903986"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f4d91e8dcc688650",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "send notification low humedAire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31fba061ad7cdaed",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 750,
+        "y": 400,
+        "wires": [
+            [
+                "4a6003093729790b"
+            ]
+        ]
+    },
+    {
+        "id": "90036b3eb194855c",
+        "type": "switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "29",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "29",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 860,
+        "wires": [
+            [
+                "459797a320f16fc7"
+            ],
+            [
+                "2e4949b5b3993891"
+            ]
+        ]
+    },
+    {
+        "id": "459797a320f16fc7",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Encendida",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 820,
+        "wires": [
+            [
+                "c610dc3a75b5e53b"
+            ]
+        ]
+    },
+    {
+        "id": "0d039335f2c46245",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "e2282b11da5ad23a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado Bomba",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1060,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "2e4949b5b3993891",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Apagada",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 880,
+        "wires": [
+            [
+                "c610dc3a75b5e53b"
+            ]
+        ]
+    },
+    {
+        "id": "c610dc3a75b5e53b",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 890,
+        "y": 860,
+        "wires": [
+            [
+                "0d039335f2c46245"
+            ]
+        ]
+    },
+    {
+        "id": "ab36feb688903986",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 1020,
+        "wires": [
+            [
+                "f4d91e8dcc688650"
+            ]
+        ]
+    },
+    {
+        "id": "891d8d640fb73420",
+        "type": "ui_switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "label": "LED",
+        "tooltip": "",
+        "group": "e2282b11da5ad23a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 130,
+        "y": 1340,
+        "wires": [
+            [
+                "fc6ca562a740ae81"
+            ]
+        ]
+    },
+    {
+        "id": "d24f82b1e4f3719a",
+        "type": "ui_switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "label": "BOMBA",
+        "tooltip": "",
+        "group": "e2282b11da5ad23a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 140,
+        "y": 1420,
+        "wires": [
+            [
+                "07b14090f0edab4a"
+            ]
+        ]
+    },
+    {
+        "id": "fc6ca562a740ae81",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "control/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 370,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "07b14090f0edab4a",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "control/pump",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 370,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "75625876b237174c",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "light/sensorldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 150,
+        "y": 1200,
+        "wires": [
+            [
+                "b7c1943d46775c09",
+                "639133569745f7d9"
+            ]
+        ]
+    },
+    {
+        "id": "b7c1943d46775c09",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Luz",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "639133569745f7d9",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "",
+        "group": "bb2d70fd5668110c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Luminosidad",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1023",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "250",
+        "seg2": "750",
+        "diff": false,
+        "className": "",
+        "x": 450,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.17",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "92a9cd27.99b9d",
+        "type": "ui_group",
+        "name": "Sensor | Temperatura Aire",
+        "tab": "5ddb8015a2117ef5",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "00fd71d20afe50e3",
+        "type": "ui_group",
+        "name": "Sensor | Humedad Aire",
+        "tab": "5ddb8015a2117ef5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "426ccebbe959ebd3",
+        "type": "telegram bot",
+        "botname": "iotBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "e2282b11da5ad23a",
+        "type": "ui_group",
+        "name": "Actuadores | Estados",
+        "tab": "5ddb8015a2117ef5",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bb2d70fd5668110c",
+        "type": "ui_group",
+        "name": "Sensor | Luz",
+        "tab": "5ddb8015a2117ef5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ddb8015a2117ef5",
+        "type": "ui_tab",
+        "name": "MARTECH",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
