@@ -1,0 +1,612 @@
+[
+    {
+        "id": "3bab716a8a493dbf",
+        "type": "subflow",
+        "name": "HumidUI (2)",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 140,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "37193b5976b8907d"
+                    },
+                    {
+                        "id": "8343c4742146fe3f"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "deviceID",
+                "type": "dev",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-server",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "dev",
+                            "file",
+                            "env"
+                        ]
+                    }
+                }
+            }
+        ],
+        "color": "#3FADB5",
+        "icon": "node-red-dashboard/ui_chart.png"
+    },
+    {
+        "id": "37193b5976b8907d",
+        "type": "ui_gauge",
+        "z": "3bab716a8a493dbf",
+        "name": "Humid Gauge",
+        "group": "5188a4cc66916299",
+        "order": 1,
+        "width": 9,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": "60",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "80",
+        "seg2": "92",
+        "className": "",
+        "x": 440,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8343c4742146fe3f",
+        "type": "ui_chart",
+        "z": "3bab716a8a493dbf",
+        "name": "Humidity Chart",
+        "group": "5188a4cc66916299",
+        "order": 2,
+        "width": 10,
+        "height": 4,
+        "label": "Humidity (%)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "20",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#2ca02c",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 440,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5188a4cc66916299",
+        "type": "ui_group",
+        "z": "3bab716a8a493dbf",
+        "name": "Humidity",
+        "tab": "e078c6b.429dd38",
+        "order": 3,
+        "disp": true,
+        "width": 19,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2197f9b20e245122",
+        "type": "subflow",
+        "name": "TempUI (2)",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 120,
+                "y": 249,
+                "wires": [
+                    {
+                        "id": "b8f1f2881f690446"
+                    },
+                    {
+                        "id": "b7cc2d5e27f8b491"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "deviceID",
+                "type": "dev",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-server",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "dev",
+                            "file",
+                            "env"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-dashboard/ui_chart.png"
+    },
+    {
+        "id": "b8f1f2881f690446",
+        "type": "ui_gauge",
+        "z": "2197f9b20e245122",
+        "name": "TempGauge",
+        "group": "78467dade0c57cfb",
+        "order": 1,
+        "width": 8,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value | number:1}}",
+        "min": "40",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "56",
+        "className": "",
+        "x": 330,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b7cc2d5e27f8b491",
+        "type": "ui_chart",
+        "z": "2197f9b20e245122",
+        "name": "Temp Chart",
+        "group": "78467dade0c57cfb",
+        "order": 2,
+        "width": 11,
+        "height": 4,
+        "label": "Temperature (C)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "20",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "chart",
+        "x": 330,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1b078c3d9f60dd3",
+        "type": "ui_group",
+        "z": "2197f9b20e245122",
+        "name": "Default",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "78467dade0c57cfb",
+        "type": "ui_group",
+        "z": "2197f9b20e245122",
+        "name": "Temperature",
+        "tab": "e078c6b.429dd38",
+        "order": 2,
+        "disp": true,
+        "width": 19,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e078c6b.429dd38",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9b30030f667a40d7",
+        "type": "tab",
+        "label": "Dashboard v1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ec7385d7640cf636",
+        "type": "inject",
+        "z": "9b30030f667a40d7",
+        "name": "Temperature",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50* (1 + 0.4*($random()-0.5))",
+        "payloadType": "jsonata",
+        "trigger": true,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "97a45e4e164b7a7d"
+            ]
+        ]
+    },
+    {
+        "id": "97a45e4e164b7a7d",
+        "type": "change",
+        "z": "9b30030f667a40d7",
+        "name": "Format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "type",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "deviceID",
+                "pt": "msg",
+                "to": "($env(\"deviceID\") = \"\") ? \"Simulated\" : $env(\"deviceID\")",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "alert",
+                "pt": "msg",
+                "to": "(payload > 56) ? \"alert\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [
+                "f58173db2f7bbf01"
+            ]
+        ]
+    },
+    {
+        "id": "762ed6d68b4fd934",
+        "type": "change",
+        "z": "9b30030f667a40d7",
+        "name": "Format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "type",
+                "pt": "msg",
+                "to": "humidity",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "deviceID",
+                "pt": "msg",
+                "to": "($env(\"deviceID\") = \"\") ? \"Simulated\" : $env(\"deviceID\")",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "alert",
+                "pt": "msg",
+                "to": "(payload > 92) ? \"alert\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "30c5109676240378"
+            ]
+        ]
+    },
+    {
+        "id": "1cd8206f4e2fac13",
+        "type": "inject",
+        "z": "9b30030f667a40d7",
+        "name": "Humidity",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "80* (1 + 0.4*($random()-0.5))",
+        "payloadType": "jsonata",
+        "trigger": true,
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "762ed6d68b4fd934"
+            ]
+        ]
+    },
+    {
+        "id": "f58173db2f7bbf01",
+        "type": "subflow:2197f9b20e245122",
+        "z": "9b30030f667a40d7",
+        "name": "TempUI",
+        "env": [],
+        "x": 880,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "30c5109676240378",
+        "type": "subflow:3bab716a8a493dbf",
+        "z": "9b30030f667a40d7",
+        "name": "",
+        "env": [],
+        "x": 890,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7a07aa1aa0f75a15",
+        "type": "inject",
+        "z": "9b30030f667a40d7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"Name\":\"Kazuhito Yokoi\",\"Age\":\"35\",\"Favourite Color\":\"red\",\"Date Of Birth\":\"12/09/1983\"},{\"Name\":\"Oli Bob\",\"Age\":\"12\",\"Favourite Color\":\"red\",\"Date Of Birth\":\"12/08/2017\"}]",
+        "payloadType": "json",
+        "trigger": true,
+        "x": 270,
+        "y": 460,
+        "wires": [
+            [
+                "ba9c0a4b59a5adb3"
+            ]
+        ]
+    },
+    {
+        "id": "ba9c0a4b59a5adb3",
+        "type": "ui_table",
+        "z": "9b30030f667a40d7",
+        "group": "210b3638edc51bb5",
+        "name": "",
+        "order": 1,
+        "width": 19,
+        "height": 5,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 550,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ba17f9b9f63da1eb",
+        "type": "comment",
+        "z": "9b30030f667a40d7",
+        "name": "Normal table",
+        "info": "",
+        "x": 270,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7ca243ff5e69a98f",
+        "type": "ui_template",
+        "z": "9b30030f667a40d7",
+        "group": "c1e6de0d4d0c97f8",
+        "name": "CSS",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n.title{\n    font-size: 1.4em;\n    color: red !important;\n    border-left: 6px solid orange;\n}\n.save button:hover {\n  /*width: 50%;*/\n  background-color: #4CAF50; \n  color: black !important;\n}\n.save button  {\n  border: none;\n  border-radius: 8px;\n  text-align: center;\n  width: 50% ;\n  transition-duration: 0.4s;\n  background-color: #ddffdd;\n  color: white;         \n}\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eed589110fc1ad1f",
+        "type": "ui_text",
+        "z": "9b30030f667a40d7",
+        "group": "c1e6de0d4d0c97f8",
+        "order": 1,
+        "width": 8,
+        "height": 1,
+        "name": "",
+        "label": "This is a Title",
+        "format": "",
+        "layout": "row-spread",
+        "className": "title",
+        "x": 270,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "948c301489226e89",
+        "type": "ui_button",
+        "z": "9b30030f667a40d7",
+        "name": "",
+        "group": "c1e6de0d4d0c97f8",
+        "order": 3,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Save",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "save",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc46d65b4c116d90",
+        "type": "ui_spacer",
+        "z": "9b30030f667a40d7",
+        "name": "spacer",
+        "group": "c1e6de0d4d0c97f8",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "23a5bbe39bcec142",
+        "type": "ui_spacer",
+        "z": "9b30030f667a40d7",
+        "name": "spacer",
+        "group": "c1e6de0d4d0c97f8",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "210b3638edc51bb5",
+        "type": "ui_group",
+        "name": "Table",
+        "tab": "e078c6b.429dd38",
+        "order": 4,
+        "disp": true,
+        "width": "19",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c1e6de0d4d0c97f8",
+        "type": "ui_group",
+        "name": "Heading",
+        "tab": "e078c6b.429dd38",
+        "order": 1,
+        "disp": false,
+        "width": 19,
+        "collapse": false,
+        "className": ""
+    }
+]

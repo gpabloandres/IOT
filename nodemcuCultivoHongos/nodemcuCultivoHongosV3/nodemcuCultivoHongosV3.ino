@@ -16,7 +16,7 @@ const char* ssid = "ASP";
 const char* password = "ASP110110";
 
 // Servidor MQTT
-const char* mqtt_server = "192.168.1.17";
+const char* mqtt_server = "192.168.1.12";
 
 // Credenciales MQTT
 const char* MQTT_username = NULL; 
