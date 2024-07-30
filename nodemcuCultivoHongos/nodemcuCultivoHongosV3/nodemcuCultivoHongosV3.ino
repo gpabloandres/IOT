@@ -12,11 +12,11 @@
 DHT dht(DHTPin, DHTTYPE);
 
 // Credenciales WiFi
-const char* ssid = "ASP";
-const char* password = "ASP110110";
+const char* ssid = "AndroidAP";
+const char* password = "wrkn9541";
 
 // Servidor MQTT
-const char* mqtt_server = "192.168.1.12";
+const char* mqtt_server = "192.168.43.31";
 
 // Credenciales MQTT
 const char* MQTT_username = NULL; 
