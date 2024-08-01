@@ -2,21 +2,21 @@
 #include <PubSubClient.h>
 #include "DHT.h"
 
-#define DHTTYPE DHT11
-#define DHTPin 4
+#define DHTTYPE DHT11  // Tipo de sensor DHT
+#define DHTPin 4       // Pin donde se conecta el sensor DHT
 
-DHT dht(DHTPin, DHTTYPE);
+DHT dht(DHTPin, DHTTYPE);  // Inicializar el sensor DHT
 
-// Change the credentials below, so your ESP8266 connects to your router
+// Credenciales para la conexión WiFi
 const char* ssid = "ASP";
 const char* password = "ASP110110";
-const char* mqtt_server = "192.168.1.17";     /// MQTT  Broker
+const char* mqtt_server = "192.168.1.12";  // Dirección del broker MQTT
 
-// MQTT broker credentials (set to NULL if not required)
+// Credenciales del broker MQTT (dejar en NULL si no se requieren)
 const char* MQTT_username = NULL; 
 const char* MQTT_password = NULL;
 
-// Initializes the espClient. You should change the espClient name if you have multiple ESPs running in your home automation system
+// Inicialización del cliente WiFi y MQTT
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -30,12 +30,11 @@ void setup() {
   client.setCallback(callback);
 }
 
-// This functions connects your ESP8266 to your router
+// Función para conectar el ESP8266 a la red WiFi
 void setup_wifi() {
   delay(10);
-  // We start by connecting to a WiFi network
   Serial.println();
-  Serial.print("Connecting to ");
+  Serial.print("Conectando a ");
   Serial.println(ssid);
 
   WiFi.begin(ssid, password);
@@ -45,18 +44,18 @@ void setup_wifi() {
     Serial.print(".");
   }
 
-  Serial.println("");
-  Serial.print("WiFi connected - ESP IP address: ");
+  Serial.println();
+  Serial.print("WiFi conectado - Dirección IP: ");
   Serial.println(WiFi.localIP());
 }
 
+// Función de callback para manejar mensajes MQTT entrantes
 void callback(char* topic, byte* payload, unsigned int length) {
-  
   Serial.print("Mensaje recibido [");
   Serial.print(topic);
-  Serial.print("] ");
+  Serial.print("]: ");
 
-  for (int i = 0; i < length; i++) {
+  for (unsigned int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
@@ -64,22 +63,16 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 // Función para reconectar al servidor MQTT
 void reconnect() {
-  // Loop until we're reconnected
   while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
-    // Attempt to connect
-    //With User and Passwordif (client.connect("NodeMCUClient", MQTT_username, MQTT_password)) {
-    if (client.connect("ESP8266Client")) {
-      Serial.println("connected");  
-      // Once connected, publish an announcement...
+    Serial.print("Intentando conexión MQTT...");
+    if (client.connect("ESP8266Client", MQTT_username, MQTT_password)) {
+      Serial.println("conectado");
       client.publish("event", "hello world");
-      // ... and resubscribe
       client.subscribe("event");
     } else {
-      Serial.print("failed, rc=");
+      Serial.print("falló, rc=");
       Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
+      Serial.println(" intentando de nuevo en 5 segundos");
       delay(5000);
     }
   }
@@ -89,39 +82,30 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-  if(!client.loop())
-    client.connect("NodeMCUClient", MQTT_username, MQTT_password);
+  client.loop();
   
   unsigned long currentMillis = millis();
-  // Publishes new temperature and humidity every 10 seconds
+  // Publicar datos cada 10 segundos
   if (currentMillis - previousMillis > 10000) {
     previousMillis = currentMillis;
 
-    float humidity = dht.readHumidity();
-    // Read temperature as Celsius (the default)
-    float temperatureC = dht.readTemperature();
-    // Read temperature as Fahrenheit (isFahrenheit = true)
-    float temperatureF = dht.readTemperature(true);
+    float humedad = dht.readHumidity();
+    float temperaturaC = dht.readTemperature();  // Temperatura en Celsius
 
-    // Check if any reads failed and exit early (to try again).
-    if (isnan(humidity) || isnan(temperatureC) || isnan(temperatureF)) {
-      Serial.println("Failed to read from DHT sensor!");
+    if (isnan(humedad) || isnan(temperaturaC)) {
+      Serial.println("Error al leer el sensor DHT!");
       return;
     }
 
-    // Publishes Temperature and Humidity values
-    client.publish("tempaire/sensordht11", String(temperatureC).c_str());
-    client.publish("humidity/sensordht11", String(humidity).c_str());
-    //Uncomment to publish temperature in F degrees
-    //client.publish("iotfrontier/temperature", String(temperatureF).c_str());
+    // Publicar valores de temperatura y humedad
+    client.publish("tempaire/sensordht11", String(temperaturaC).c_str());
+    client.publish("humidity/sensordht11", String(humedad).c_str());
     
-    Serial.print("Humidity: ");
-    Serial.print(humidity);
+    Serial.print("Humedad: ");
+    Serial.print(humedad);
     Serial.println(" %");
-    Serial.print("Temperature: ");
-    Serial.print(temperatureC);
+    Serial.print("Temperatura: ");
+    Serial.print(temperaturaC);
     Serial.println(" ºC");
-    //Serial.print(temperatureF);
-    //Serial.println(" ºF");
   }
 }
