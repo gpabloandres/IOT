@@ -1,0 +1,1801 @@
+[
+    {
+        "id": "1b2174702613692c",
+        "type": "tab",
+        "label": "MARTECH",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0b472252afdb513",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "tempaire/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "06eece4b56d14be2",
+                "d74acbcb1ea85a42",
+                "24fba83f20c19300",
+                "71aecc1ea5ce684a",
+                "af5a2ffaa0cee6cd",
+                "f03b7de763327528"
+            ]
+        ]
+    },
+    {
+        "id": "1c35b478a91a3e26",
+        "type": "comment",
+        "z": "1b2174702613692c",
+        "name": "AUTOMATIZACIÓN DEL CONTROL DE CULTIVOS DE HONGOS",
+        "info": "",
+        "x": 280,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "d74acbcb1ea85a42",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2bde28890dff3dc4",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "humidity/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 800,
+        "wires": [
+            [
+                "f68ccdf2b1098bcc",
+                "1856070b05c72791",
+                "8c99e5d9dae166f9",
+                "51ed92ac6c35de59",
+                "672ef5117edbcd47",
+                "90036b3eb194855c"
+            ]
+        ]
+    },
+    {
+        "id": "1856070b05c72791",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humedAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71aecc1ea5ce684a",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "insert tempAire",
+        "func": "var tempAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(tempAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "882997976aba3026"
+            ]
+        ]
+    },
+    {
+        "id": "af5a2ffaa0cee6cd",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Check TemperaturaAire",
+        "func": "let tempAire = parseFloat(msg.payload);\nif (tempAire < 21) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La temperatura del aire es baja: ${tempAire}`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "31fba061ad7cdaed"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "51ed92ac6c35de59",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "insert humedAire",
+        "func": "var humedAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(humedAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1020,
+        "wires": [
+            [
+                "a89f542cfe7e1fc9"
+            ]
+        ]
+    },
+    {
+        "id": "672ef5117edbcd47",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Check Humedad Aire",
+        "func": "let humedAire = parseFloat(msg.payload);\nif (humedAire < 21) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La humedad del aire es baja: ${humedAire}` + `%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1100,
+        "wires": [
+            [
+                "ab36feb688903986"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "31fba061ad7cdaed",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 750,
+        "y": 640,
+        "wires": [
+            [
+                "4a6003093729790b"
+            ]
+        ]
+    },
+    {
+        "id": "90036b3eb194855c",
+        "type": "switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "21",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "21",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 860,
+        "wires": [
+            [
+                "459797a320f16fc7",
+                "6914f98d4923bfa3"
+            ],
+            [
+                "2e4949b5b3993891",
+                "c923904a2ea24526"
+            ]
+        ]
+    },
+    {
+        "id": "459797a320f16fc7",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "HumificadorEncendido",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Encendido x sensor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 900,
+        "wires": [
+            [
+                "c610dc3a75b5e53b"
+            ]
+        ]
+    },
+    {
+        "id": "2e4949b5b3993891",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "HumificadorApagados",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Apagado x sensor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 960,
+        "wires": [
+            [
+                "c610dc3a75b5e53b"
+            ]
+        ]
+    },
+    {
+        "id": "c610dc3a75b5e53b",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 940,
+        "wires": [
+            [
+                "0d039335f2c46245"
+            ]
+        ]
+    },
+    {
+        "id": "ab36feb688903986",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 710,
+        "y": 1100,
+        "wires": [
+            [
+                "f4d91e8dcc688650"
+            ]
+        ]
+    },
+    {
+        "id": "fc6ca562a740ae81",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "control/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 370,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "07b14090f0edab4a",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "control/pump",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 370,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "75625876b237174c",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "light/sensorldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 150,
+        "y": 1280,
+        "wires": [
+            [
+                "b7c1943d46775c09",
+                "639133569745f7d9",
+                "c3973ccd3f998392",
+                "19027827d6c54bd8",
+                "e5736295f641c657"
+            ]
+        ]
+    },
+    {
+        "id": "b7c1943d46775c09",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "luminosidad",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9759604e6506a56f",
+        "type": "comment",
+        "z": "1b2174702613692c",
+        "name": "Sensores",
+        "info": "",
+        "x": 100,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7ef57e67793a0a48",
+        "type": "comment",
+        "z": "1b2174702613692c",
+        "name": "Actuadores",
+        "info": "",
+        "x": 110,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "61a8028b3e19c065",
+        "type": "comment",
+        "z": "1b2174702613692c",
+        "name": "Registro fotográfico",
+        "info": "",
+        "x": 130,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "85c8b2420fd2db8e",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "webcam/capture",
+        "qos": "",
+        "retain": "",
+        "broker": "6d7b11e0.6dfdf",
+        "x": 340,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "098c391c25c9b9c4",
+        "type": "mqtt in",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "webcam/info",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "6d7b11e0.6dfdf",
+        "inputs": 0,
+        "x": 150,
+        "y": 2140,
+        "wires": [
+            [
+                "6b1a3a1047108a96"
+            ]
+        ]
+    },
+    {
+        "id": "6b1a3a1047108a96",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "Set Filepath and Timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filepath",
+                "pt": "msg",
+                "to": "$split(payload, ',')[0]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "$split(payload, ',')[1]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 2140,
+        "wires": [
+            [
+                "c764d6059fea2d8c"
+            ]
+        ]
+    },
+    {
+        "id": "c764d6059fea2d8c",
+        "type": "template",
+        "z": "1b2174702613692c",
+        "name": "Generate Base64 URL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<img src=\"data:image/jpeg;base64,{{{payload}}}\" alt=\"Captured Image\"/><p>{{timestamp}}</p>",
+        "output": "str",
+        "x": 640,
+        "y": 2140,
+        "wires": [
+            [
+                "e31a208a6f8ddc1b"
+            ]
+        ]
+    },
+    {
+        "id": "c3973ccd3f998392",
+        "type": "switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "100",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "100",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 1320,
+        "wires": [
+            [
+                "d73d1b4b0de6bca0"
+            ],
+            [
+                "ca043c80f542f84f"
+            ]
+        ]
+    },
+    {
+        "id": "d73d1b4b0de6bca0",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1280,
+        "wires": [
+            [
+                "7a19db14f98a7167"
+            ]
+        ]
+    },
+    {
+        "id": "ca043c80f542f84f",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alta",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1360,
+        "wires": [
+            [
+                "7a19db14f98a7167"
+            ]
+        ]
+    },
+    {
+        "id": "7a19db14f98a7167",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 1320,
+        "wires": [
+            [
+                "66c9a92fba7ad1a6"
+            ]
+        ]
+    },
+    {
+        "id": "f03b7de763327528",
+        "type": "switch",
+        "z": "1b2174702613692c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "21",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "21",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 440,
+        "wires": [
+            [
+                "307ce1382185aea8",
+                "98828e99429cc11b"
+            ],
+            [
+                "e2103565a1ca9878",
+                "ee7f6e2884ca24c7"
+            ]
+        ]
+    },
+    {
+        "id": "307ce1382185aea8",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Baja",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 400,
+        "wires": [
+            [
+                "80b695afb86085ba"
+            ]
+        ]
+    },
+    {
+        "id": "e2103565a1ca9878",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 460,
+        "wires": [
+            [
+                "80b695afb86085ba"
+            ]
+        ]
+    },
+    {
+        "id": "80b695afb86085ba",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 440,
+        "wires": [
+            [
+                "8c8bed313e485a93"
+            ]
+        ]
+    },
+    {
+        "id": "6914f98d4923bfa3",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "HumedadBaja",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Baja",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 800,
+        "wires": [
+            [
+                "5173cf72998d5b7e"
+            ]
+        ]
+    },
+    {
+        "id": "c923904a2ea24526",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "HumedadNormal",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 860,
+        "wires": [
+            [
+                "5173cf72998d5b7e"
+            ]
+        ]
+    },
+    {
+        "id": "5173cf72998d5b7e",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 820,
+        "wires": [
+            [
+                "0e0ea06d7e2bd8af"
+            ]
+        ]
+    },
+    {
+        "id": "437dcbbf6e91994c",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Send info",
+        "func": "let tempAire = global.get('tempAire') || \"No disponible\";\nlet humedAire = global.get('humedAire') || \"No disponible\";\nlet lumin = global.get('luminosidad') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content:`Temperatura del aire es: ${tempAire}` + `°C\\n` + \n            `Humedad del aire es: ${humedAire}` + `%\\n` + \n            `Luminosidad es: ${lumin}`\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1620,
+        "wires": [
+            [
+                "caf72ca727d34f05"
+            ]
+        ]
+    },
+    {
+        "id": "e5736295f641c657",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "insert humedAire",
+        "func": "var lumin =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(lumin),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1420,
+        "wires": [
+            [
+                "79c83208046284bb"
+            ]
+        ]
+    },
+    {
+        "id": "19027827d6c54bd8",
+        "type": "function",
+        "z": "1b2174702613692c",
+        "name": "Check Luminosidad",
+        "func": "let lumin = parseFloat(msg.payload);\nif (lumin > 500) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La luminosidad es alta: ${lumin}` + `%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1500,
+        "wires": [
+            [
+                "3e60b1d120a12060"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3e60b1d120a12060",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 710,
+        "y": 1500,
+        "wires": [
+            [
+                "0a8485afd6e8ec27"
+            ]
+        ]
+    },
+    {
+        "id": "882997976aba3026",
+        "type": "influxdb out",
+        "z": "1b2174702613692c",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio tempAire",
+        "measurement": "temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a89f542cfe7e1fc9",
+        "type": "influxdb out",
+        "z": "1b2174702613692c",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio humedAire",
+        "measurement": "humedad",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 750,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "79c83208046284bb",
+        "type": "influxdb out",
+        "z": "1b2174702613692c",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio Luminosidad",
+        "measurement": "luminosidad",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 750,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "381e1d5b2f5a970d",
+        "type": "telegram receiver",
+        "z": "1b2174702613692c",
+        "name": "Telegram Receiver",
+        "bot": "426ccebbe959ebd3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 430,
+        "y": 1620,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5df1f5248337f607",
+        "type": "telegram command",
+        "z": "1b2174702613692c",
+        "name": "/infoEstado",
+        "command": "/info",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "bot": "426ccebbe959ebd3",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 1620,
+        "wires": [
+            [
+                "437dcbbf6e91994c"
+            ]
+        ]
+    },
+    {
+        "id": "4a6003093729790b",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "Notificación Baja Temperatura Aire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4d91e8dcc688650",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "Notificación Baja Humedad Aire",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "caf72ca727d34f05",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "send info",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1080,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a8485afd6e8ec27",
+        "type": "telegram sender",
+        "z": "1b2174702613692c",
+        "name": "Notificación Alta Luminosidad",
+        "bot": "426ccebbe959ebd3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c572dba95cbb050e",
+        "type": "ui_button",
+        "z": "1b2174702613692c",
+        "name": "Botón Captura",
+        "group": "e2282b11da5ad23a",
+        "order": 4,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "Captura Imagen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "btn info",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 2080,
+        "wires": [
+            [
+                "85c8b2420fd2db8e"
+            ]
+        ]
+    },
+    {
+        "id": "891d8d640fb73420",
+        "type": "ui_switch",
+        "z": "1b2174702613692c",
+        "name": "On/Off Luces",
+        "label": "Luces",
+        "tooltip": "",
+        "group": "e2282b11da5ad23a",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 150,
+        "y": 1800,
+        "wires": [
+            [
+                "fc6ca562a740ae81"
+            ]
+        ]
+    },
+    {
+        "id": "d24f82b1e4f3719a",
+        "type": "ui_switch",
+        "z": "1b2174702613692c",
+        "name": "On/Off Humificador",
+        "label": "Humificador",
+        "tooltip": "",
+        "group": "e2282b11da5ad23a",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 1860,
+        "wires": [
+            [
+                "07b14090f0edab4a"
+            ]
+        ]
+    },
+    {
+        "id": "0d039335f2c46245",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "Información Humificador",
+        "label": "Humificador",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1230,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "0814ad0b4ea21db0",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "32ee8d9998f0d6b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Título App",
+        "label": "Tablero de Control",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "title",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "66c9a92fba7ad1a6",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "Información Luminosidad",
+        "label": "Luminosidad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1230,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "8c8bed313e485a93",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "Información Temperatura",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1230,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0e0ea06d7e2bd8af",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Información Humedad",
+        "label": "Humedad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1220,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "24fba83f20c19300",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "Medidor TempAire",
+        "group": "92a9cd27.99b9d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "40",
+        "colors": [
+            "#b32400",
+            "#e6e600",
+            "#74cb3a"
+        ],
+        "seg1": "0",
+        "seg2": "21",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f68ccdf2b1098bcc",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "Medidor HumedAire",
+        "group": "00fd71d20afe50e3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#db1600",
+            "#e6de00",
+            "#2ed600"
+        ],
+        "seg1": "21",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "639133569745f7d9",
+        "type": "ui_gauge",
+        "z": "1b2174702613692c",
+        "name": "Medidor Luminosidad",
+        "group": "bb2d70fd5668110c",
+        "order": 1,
+        "width": "4",
+        "height": "3",
+        "gtype": "wave",
+        "title": "",
+        "label": "Luminosidad",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1023",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "250",
+        "seg2": "750",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "06eece4b56d14be2",
+        "type": "ui_chart",
+        "z": "1b2174702613692c",
+        "name": "Chart TempAire",
+        "group": "92a9cd27.99b9d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c99e5d9dae166f9",
+        "type": "ui_chart",
+        "z": "1b2174702613692c",
+        "name": "Chart HumedAire",
+        "group": "00fd71d20afe50e3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e31a208a6f8ddc1b",
+        "type": "ui_template",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "name": "Imagen Capturada",
+        "order": 6,
+        "width": 6,
+        "height": 4,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 870,
+        "y": 2140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f20d8bc1bcafbb2",
+        "type": "ui_template",
+        "z": "1b2174702613692c",
+        "group": "32ee8d9998f0d6b4",
+        "name": "CSS",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n  .title {\n    font-size: 2em;\n    color: #333;\n    border-left: 6px solid #FFA500;\n    padding-left: 16px;\n    margin-bottom: 16px;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    line-height: 1.2;\n    display: inline-block;\n    border-radius: 4px;\n  }\n  .estado {\n    font-size: 1.2em;\n    color: #333;\n    border-left: 6px solid #FFA500;\n    padding-left: 16px;\n    margin-bottom: 16px;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    line-height: 1.2;\n    display: inline-block;\n    border-radius: 4px;\n  }\n  .btn {\n    border: none;\n    color: white;\n    padding: 14px 28px;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 4px;\n  }\n  .info {\n    background-color: #2196F3;\n  } /* Blue */\n  .info:hover {\n    background: #0b7dda;\n    transform: translateY(-2px);\n  }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 812.5,
+        "y": 105,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de07a61792f06bfa",
+        "type": "ui_switch",
+        "z": "1b2174702613692c",
+        "name": "On/Off Coolers",
+        "label": "Coolers",
+        "tooltip": "",
+        "group": "e2282b11da5ad23a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 160,
+        "y": 1920,
+        "wires": [
+            [
+                "6f21700caf87ea4d"
+            ]
+        ]
+    },
+    {
+        "id": "6f21700caf87ea4d",
+        "type": "mqtt out",
+        "z": "1b2174702613692c",
+        "name": "",
+        "topic": "control/coolers",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 380,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "ee7f6e2884ca24c7",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "CoolersEncendidos",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Encendidos x sensor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 520,
+        "wires": [
+            [
+                "fa737eab790b5374"
+            ]
+        ]
+    },
+    {
+        "id": "98828e99429cc11b",
+        "type": "change",
+        "z": "1b2174702613692c",
+        "name": "CoolersApagados",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Apagados x sensor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 580,
+        "wires": [
+            [
+                "fa737eab790b5374"
+            ]
+        ]
+    },
+    {
+        "id": "fa737eab790b5374",
+        "type": "rbe",
+        "z": "1b2174702613692c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 560,
+        "wires": [
+            [
+                "1b481fc025d669b6"
+            ]
+        ]
+    },
+    {
+        "id": "1b481fc025d669b6",
+        "type": "ui_text",
+        "z": "1b2174702613692c",
+        "group": "1c822f11f11aa2d9",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "name": "Información Coolers",
+        "label": "Coolers",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1220,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.14",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6d7b11e0.6dfdf",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.12",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "426ccebbe959ebd3",
+        "type": "telegram bot",
+        "botname": "iotBot",
+        "usernames": "iotBot",
+        "chatids": "-4234464685",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "e2282b11da5ad23a",
+        "type": "ui_group",
+        "name": "Actuadores | Estados",
+        "tab": "5ddb8015a2117ef5",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1c822f11f11aa2d9",
+        "type": "ui_group",
+        "name": "Información",
+        "tab": "5ddb8015a2117ef5",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "32ee8d9998f0d6b4",
+        "type": "ui_group",
+        "name": "Heading",
+        "tab": "5ddb8015a2117ef5",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "92a9cd27.99b9d",
+        "type": "ui_group",
+        "name": "Sensor | Temperatura Aire",
+        "tab": "5ddb8015a2117ef5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "00fd71d20afe50e3",
+        "type": "ui_group",
+        "name": "Sensor | Humedad Aire",
+        "tab": "5ddb8015a2117ef5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bb2d70fd5668110c",
+        "type": "ui_group",
+        "name": "Sensor | Luz",
+        "tab": "5ddb8015a2117ef5",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ddb8015a2117ef5",
+        "type": "ui_tab",
+        "name": "MARTECH",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
