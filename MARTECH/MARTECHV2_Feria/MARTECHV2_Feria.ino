@@ -5,24 +5,25 @@
 #include "DHT.h"
 
 // Definiciones y constantes
-#define DHTTYPE DHT11
-#define DHTPin 0 // Pin del sensor de temperatura y humedad del aire
-#define PUMP_PIN 12 // Pin del humidificador
-#define LED_PIN LED_BUILTIN  // LED interno del ESP8266
 #define LDR_PIN A0  // Pin del sensor de luz
+#define LED_PIN LED_BUILTIN  // LED interno del ESP8266
+#define DHTTYPE DHT11
+#define DHTPin 0 // Pin del sensor de temperatura y humedad del aire (GPIO 0)
 #define SDA_PIN 4  // Pin SDA para I2C (GPIO 4)
 #define SCL_PIN 5  // Pin SCL para I2C (GPIO 5)
-#define COOLERS_PIN 14 // Pin de los coolers
+#define PUMP_PIN 12 // Pin del humidificador (GPIO 12)
+#define COOLERS_PIN 13 // Pin de los coolers (GPIO 13)
+#define PELTIER_PIN 14 // Pin de los coolers (GPIO 14)
 
 // Inicialización del sensor DHT
 DHT dht(DHTPin, DHTTYPE);
 
 // Credenciales WiFi
-const char* ssid = "ASP";
-const char* password = "ASP110110";
+const char* ssid = "AndroidAP";
+const char* password = "wrkn9541";
 
 // Servidor MQTT
-const char* mqtt_server = "192.168.1.17";
+const char* mqtt_server = "192.168.43.37";
 
 // Credenciales MQTT
 const char* MQTT_username = NULL; 
@@ -43,13 +44,15 @@ void setup() {
   setup_wifi();  // Conectar a la red WiFi
   client.setServer(mqtt_server, 1883);  // Configurar servidor MQTT
   client.setCallback(callback);  // Configurar función de callback
+  pinMode(LED_PIN, OUTPUT);   // Configurar pin del LED interno como salida
   pinMode(PUMP_PIN, OUTPUT);  // Configurar pin del humificador como salida
   pinMode(COOLERS_PIN, OUTPUT);  // Configurar pin de los coolers como salida
-  pinMode(LED_PIN, OUTPUT);   // Configurar pin del LED interno como salida
+  pinMode(PELTIER_PIN, OUTPUT);  // Configurar pin del peltier como salida
+  digitalWrite(LED_PIN, HIGH);  // Asegurarse de que el LED esté apagado inicialmente (LED_BUILTIN está invertido)
   digitalWrite(PUMP_PIN, LOW);  // Asegurarse de que el humificador esté apagado inicialmente
   digitalWrite(COOLERS_PIN, LOW);  // Asegurarse de que los coolers esten apagados inicialmente
-  digitalWrite(LED_PIN, HIGH);  // Asegurarse de que el LED esté apagado inicialmente (LED_BUILTIN está invertido)
-  
+  digitalWrite(PELTIER_PIN, LOW);  // Asegurarse de que el peltier esté apagado inicialmente
+    
   // Iniciar I2C
   Wire.begin(SDA_PIN, SCL_PIN);
   
@@ -99,17 +102,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
   }
 
-  // Controlar el humificador
-  if (String(topic) == "control/manual/humidificador") {
-    if (message == "on") {
-      digitalWrite(PUMP_PIN, HIGH);  // Encender humidificador
-      Serial.println("Humificador encendido");
-    } else if (message == "off") {
-      digitalWrite(PUMP_PIN, LOW);  // Apagar humidificador
-      Serial.println("Humificador apagado");
-    }
-  }
-
   // Control manual y automático de los coolers
   if (String(topic) == "control/manual/coolers" || String(topic) == "control/automatico/coolers") {
     if (message == "on") {
@@ -118,6 +110,28 @@ void callback(char* topic, byte* payload, unsigned int length) {
     } else if (message == "off") {
       digitalWrite(COOLERS_PIN, LOW);  // Apagar coolers
       Serial.println("Coolers apagados");
+    }
+  }
+
+  // Control manual y automático del humidificador
+  if (String(topic) == "control/manual/humidificador" || String(topic) == "control/automatico/humidificador") {
+    if (message == "on") {
+      digitalWrite(PUMP_PIN, HIGH);  // Encender humidificador
+      Serial.println("Humidificador encendidos");
+    } else if (message == "off") {
+      digitalWrite(PUMP_PIN, LOW);  // Apagar humidificador
+      Serial.println("Humidificador apagado");
+    }
+  }
+
+  // Control manual y automático del Peltier
+  if (String(topic) == "control/manual/peltier" || String(topic) == "control/automatico/peltier") {
+    if (message == "on") {
+      digitalWrite(PELTIER_PIN, HIGH);  // Encender peltier
+      Serial.println("Peltier encendido");
+    } else if (message == "off") {
+      digitalWrite(PELTIER_PIN, LOW);  // Apagar peltier
+      Serial.println("Peltier apagado");
     }
   }
 }
@@ -133,7 +147,10 @@ void reconnect() {
       client.subscribe("control/manual/led");  // Suscribirse al tema para el control del LED
       client.subscribe("control/manual/humidificador"); // Suscribirse al tema para el control del humificador
       client.subscribe("control/manual/coolers"); // Suscribirse al tema para el control de coolers
-      client.subscribe("control/automatico/coolers"); // Suscribirse al tema para el control de coolers
+      client.subscribe("control/manual/peltier"); // Suscribirse al tema para el control del peltier
+      client.subscribe("control/automatico/humidificador"); // Suscribirse al tema para el control del humidificador
+      client.subscribe("control/automatico/coolers"); // Suscribirse al tema para el control del coolers
+      client.subscribe("control/automatico/peltier"); // Suscribirse al tema para el control del peltier
     } else {
       Serial.print("fallo, rc=");
       Serial.print(client.state());
