@@ -1,0 +1,8 @@
+# Ver el ip local configurado
+netsh interface portproxy show all
+
+# Eliminar el ip local configurado
+netsh interface portproxy delete v4tov4 listenaddress=192.168.1.7 listenport=1883
+
+# Agregar un nuevo ip local
+netsh interface portproxy add v4tov4 listenaddress=192.168.1.7 listenport=1883 connectaddress=127.0.0.1 connectport=1883
