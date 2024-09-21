@@ -1,0 +1,538 @@
+[
+    {
+        "id": "a1cc8db95fa83e4a",
+        "type": "mqtt in",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "topic": "tempaire/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "5a6a802dd68b3458",
+                "8be1dc8beecf9f85",
+                "e70f15ed956d707b",
+                "749fe2e58d2af6e2",
+                "9e6b7a3b4ff88cb9"
+            ]
+        ]
+    },
+    {
+        "id": "5a6a802dd68b3458",
+        "type": "ui_chart",
+        "z": "c6b192cd3951d272",
+        "name": "Chart TempAire",
+        "group": "f7ef0a7d95274bc0",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 700,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8be1dc8beecf9f85",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e70f15ed956d707b",
+        "type": "ui_gauge",
+        "z": "c6b192cd3951d272",
+        "name": "Medidor TempAire",
+        "group": "f7ef0a7d95274bc0",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "40",
+        "colors": [
+            "#b32400",
+            "#e6e600",
+            "#74cb3a"
+        ],
+        "seg1": "0",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "749fe2e58d2af6e2",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "name": "insert tempAire",
+        "func": "var tempAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(tempAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 520,
+        "wires": [
+            [
+                "b68b39f491b945fc"
+            ]
+        ]
+    },
+    {
+        "id": "b68b39f491b945fc",
+        "type": "influxdb out",
+        "z": "c6b192cd3951d272",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio tempAire",
+        "measurement": "temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 720,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "03b078be050834f5",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "Sensores",
+        "info": "",
+        "x": 80,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9e6b7a3b4ff88cb9",
+        "type": "switch",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "20",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "20",
+                "vt": "num",
+                "v2": "24",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "24",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "b29697c1abfc4669"
+            ],
+            [
+                "c5112b7fa0b203e0"
+            ],
+            [
+                "902efbf279b1a232"
+            ]
+        ]
+    },
+    {
+        "id": "b29697c1abfc4669",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "name": "TempAireBaja",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Baja (Peltier On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "a17cf55ecc18318b"
+            ]
+        ]
+    },
+    {
+        "id": "fb79d911b4729ff6",
+        "type": "ui_text",
+        "z": "c6b192cd3951d272",
+        "group": "f7ef0a7d95274bc0",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "Información Temperatura",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1210,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c5112b7fa0b203e0",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "name": "TempAireNormal",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal (Extractor Off)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "a17cf55ecc18318b"
+            ]
+        ]
+    },
+    {
+        "id": "a17cf55ecc18318b",
+        "type": "rbe",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 990,
+        "y": 400,
+        "wires": [
+            [
+                "fb79d911b4729ff6"
+            ]
+        ]
+    },
+    {
+        "id": "902efbf279b1a232",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "name": "TempAireAlta",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alta(Extractor On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 440,
+        "wires": [
+            [
+                "a17cf55ecc18318b"
+            ]
+        ]
+    },
+    {
+        "id": "3fb05ac0fa11ed86",
+        "type": "ui_switch",
+        "z": "c6b192cd3951d272",
+        "name": "On/Off Peltier",
+        "label": "Peltier",
+        "tooltip": "",
+        "group": "32f1324aea54163f",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 140,
+        "y": 2140,
+        "wires": [
+            [
+                "b3cd368ce8c9cc46",
+                "8d4a6aeb2a177c38",
+                "37238e36e0bd02cc"
+            ]
+        ]
+    },
+    {
+        "id": "b3cd368ce8c9cc46",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "topic": "control/manual/peltier",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 440,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "8d4a6aeb2a177c38",
+        "type": "ui_statetrail",
+        "z": "c6b192cd3951d272",
+        "group": "32f1324aea54163f",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 400,
+        "y": 2200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37238e36e0bd02cc",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "peltierManual",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 2240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.31",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f7ef0a7d95274bc0",
+        "type": "ui_group",
+        "name": "Temperatura Aire",
+        "tab": "075debd59f9fef32",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "32f1324aea54163f",
+        "type": "ui_group",
+        "name": "Celdas Peltier",
+        "tab": "f7214b781de0afa0",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "075debd59f9fef32",
+        "type": "ui_tab",
+        "name": "Sensores | Estados",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f7214b781de0afa0",
+        "type": "ui_tab",
+        "name": "Actuadores | Check",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]

@@ -1,11 +1,18 @@
+/*
+Este código mantiene únicamente el control de la temperatura
+con el sensor DHT11, utilizando PID para regular los coolers
+y el Peltier, y publica la temperatura medida a través de MQTT
+en el tema "sensores/temperatura".
+*/
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <Wire.h>
-#include <LiquidCrystal_I2C_Hangul.h>
 #include "DHT.h"
+#include <PID_v1.h>
 
 // Definiciones y constantes
-//#define LDR_PIN A0  // Pin del sensor de luz
+#define LDR_PIN A0  // Pin del sensor de luz
 #define LED_PIN LED_BUILTIN  // LED interno del ESP8266
 #define DHTTYPE DHT11
 #define DHTPin 0 // Pin del sensor de temperatura y humedad del aire (GPIO 0)
@@ -34,8 +41,18 @@ const char* MQTT_password = NULL;
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// Inicialización de LCD
-LiquidCrystal_I2C_Hangul lcd(0x27, 16, 2);
+// Variables para el control PID
+double temperatureSetpoint = 21.0; // Setpoint para temperatura (rango de 18-24 °C)
+double humiditySetpoint = 90.0;    // Setpoint para humedad (rango de 85-95%)
+double airQualitySetpoint = 500.0; // Setpoint para calidad del aire (ppm)
+
+double currentTemperature, pidOutputTemp;
+double currentHumidity, pidOutputHumidity;
+double currentAirQuality, pidOutputAirQuality;
+
+PID tempPID(&currentTemperature, &pidOutputTemp, &temperatureSetpoint, 2, 5, 1, DIRECT);
+PID humidityPID(&currentHumidity, &pidOutputHumidity, &humiditySetpoint, 2, 5, 1, DIRECT);
+PID airQualityPID(&currentAirQuality, &pidOutputAirQuality, &airQualitySetpoint, 2, 5, 1, DIRECT);
 
 unsigned long previousMillis = 0;  // Variable para controlar el tiempo
 
@@ -53,13 +70,11 @@ void setup() {
   digitalWrite(PUMP_PIN, LOW);  // Asegurarse de que el humidificador esté apagado inicialmente
   digitalWrite(COOLERS_PIN, LOW);  // Asegurarse de que los coolers estén apagados inicialmente
   digitalWrite(PELTIER_PIN, LOW);  // Asegurarse de que el Peltier esté apagado inicialmente
-    
-  // Iniciar I2C
-  Wire.begin(SDA_PIN, SCL_PIN);
-  
-  // Iniciar LCD
-  lcd.init();
-  lcd.backlight();
+
+  // Inicialización de PID
+  tempPID.SetMode(AUTOMATIC);
+  humidityPID.SetMode(AUTOMATIC);
+  airQualityPID.SetMode(AUTOMATIC);
 }
 
 // Función para conectar a la red WiFi
@@ -176,43 +191,43 @@ void loop() {
 
     float humidity = dht.readHumidity();
     float temperatureC = dht.readTemperature();
-    float temperatureF = dht.readTemperature(true);
-    //int ldrValue = analogRead(LDR_PIN);  // Leer valor del LDR
+    int ldrValue = analogRead(LDR_PIN);  // Leer valor del LDR
     int mq2Value = analogRead(MQ2_PIN);  // Leer valor del MQ-2
 
     // Verificar si las lecturas son válidas
-    if (isnan(humidity) || isnan(temperatureC) || isnan(temperatureF)) {
+    if (isnan(humidity) || isnan(temperatureC)) {
       Serial.println("Fallo en la lectura del sensor DHT");
       return;
     }
 
-    // Publicar valores de temperatura, humedad, luz y gas
-    client.publish("tempaire/sensordht11", String(temperatureC).c_str());
-    client.publish("humidity/sensordht11", String(humidity).c_str());
-    //client.publish("light/sensorldr", String(ldrValue).c_str());
-    client.publish("gas/sensormq2", String(mq2Value).c_str());
+    // Control PID para temperatura, humedad y calidad del aire
+    currentTemperature = temperatureC;
+    currentHumidity = humidity;
+    currentAirQuality = mq2Value;
 
-    Serial.print("Humedad: ");
-    Serial.print(humidity);
-    Serial.println(" %");
-    Serial.print("Temperatura: ");
-    Serial.print(temperatureC);
-    Serial.println(" ºC");
-    //Serial.print("Luz: ");
-    //Serial.println(ldrValue);
-    Serial.print("Gas (MQ-2): ");
-    Serial.println(mq2Value);
-    Serial.println(" ppm");
+    tempPID.Compute();
+    humidityPID.Compute();
+    airQualityPID.Compute();
 
-    // Mostrar valores en el LCD
-    lcd.setCursor(0, 0);
-    lcd.print("Temp: ");
-    lcd.print(temperatureC);
-    lcd.print("C");
-    lcd.setCursor(0, 1);
-    //lcd.print("Luz: ");
-    //lcd.print(ldrValue);
-    lcd.print(" Gas: ");
-    lcd.print(mq2Value);
+    // Control de dispositivos basado en PID
+    digitalWrite(COOLERS_PIN, pidOutputTemp > 0 ? HIGH : LOW);
+    digitalWrite(PUMP_PIN, pidOutputHumidity > 0 ? HIGH : LOW);
+    digitalWrite(PELTIER_PIN, pidOutputAirQuality > 0 ? HIGH : LOW);
+
+    // Publicar valores a través de MQTT
+    String tempStr = "Temperatura: " + String(temperatureC) + "C";
+    String humStr = "Humedad: " + String(humidity) + "%";
+    String lightStr = "Luz: " + String(ldrValue);
+    String airQualityStr = "Calidad del aire: " + String(mq2Value) + " ppm";
+
+    Serial.println(tempStr);
+    Serial.println(humStr);
+    Serial.println(lightStr);
+    Serial.println(airQualityStr);
+
+    client.publish("sensores/temperatura", String(temperatureC).c_str());
+    client.publish("sensores/humedad", String(humidity).c_str());
+    client.publish("sensores/luz", String(ldrValue).c_str());
+    client.publish("sensores/aire", String(mq2Value).c_str());
   }
 }

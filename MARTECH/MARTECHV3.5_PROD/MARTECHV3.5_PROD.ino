@@ -11,9 +11,11 @@
 #define DHTPin 0 // Pin del sensor de temperatura y humedad del aire (GPIO 0)
 #define SDA_PIN 4  // Pin SDA para I2C (GPIO 4)
 #define SCL_PIN 5  // Pin SCL para I2C (GPIO 5)
-#define PUMP_PIN 12 // Pin del humidificador (GPIO 12)
-#define COOLERS_PIN 13 // Pin de los coolers (GPIO 13)
-#define PELTIER_PIN 14 // Pin del Peltier (GPIO 14)
+#define HUMIDIFICADOR_PIN 12 // Pin del humidificador (GPIO 12)
+#define EXTRACTOR_PIN 13 // Pin del extractor (GPIO 13)
+#define VENTILADOR_PIN 14 // Pin del ventilador (GPIO 14)
+#define PELTIER_FRIO_PIN 15 // Pin para la celda de Peltier de frío (GPIO 15)
+#define PELTIER_CALOR_PIN 16 // Pin para la celda de Peltier de calor (GPIO 16)
 #define MQ2_PIN A0  // Pin del sensor MQ-2 (GPIO A0)
 
 // Inicialización del sensor DHT
@@ -46,13 +48,17 @@ void setup() {
   client.setServer(mqtt_server, 1883);  // Configurar servidor MQTT
   client.setCallback(callback);  // Configurar función de callback
   pinMode(LED_PIN, OUTPUT);   // Configurar pin del LED interno como salida
-  pinMode(PUMP_PIN, OUTPUT);  // Configurar pin del humidificador como salida
-  pinMode(COOLERS_PIN, OUTPUT);  // Configurar pin de los coolers como salida
-  pinMode(PELTIER_PIN, OUTPUT);  // Configurar pin del Peltier como salida
-  digitalWrite(LED_PIN, HIGH);  // Asegurarse de que el LED esté apagado inicialmente (LED_BUILTIN está invertido)
-  digitalWrite(PUMP_PIN, LOW);  // Asegurarse de que el humidificador esté apagado inicialmente
-  digitalWrite(COOLERS_PIN, LOW);  // Asegurarse de que los coolers estén apagados inicialmente
-  digitalWrite(PELTIER_PIN, LOW);  // Asegurarse de que el Peltier esté apagado inicialmente
+  pinMode(HUMIDIFICADOR_PIN, OUTPUT);  // Configurar pin del humidificador como salida
+  pinMode(EXTRACTOR_PIN, OUTPUT);  // Configurar pin de los coolers como salida
+  pinMode(VENTILADOR_PIN, OUTPUT);  // Configurar pin del ventilador como salida
+  pinMode(PELTIER_FRIO_PIN, OUTPUT);  // Configurar pin de la celda de frío como salida
+  pinMode(PELTIER_CALOR_PIN, OUTPUT);  // Configurar pin de la celda de calor como salida
+  digitalWrite(LED_PIN, HIGH);  // Asegurarse de que el LED esté apagado inicialmente
+  digitalWrite(HUMIDIFICADOR_PIN, LOW);  // Asegurarse de que el humidificador esté apagado
+  digitalWrite(EXTRACTOR_PIN, LOW);  // Asegurarse de que los coolers estén apagados
+  digitalWrite(VENTILADOR_PIN, LOW);  // Asegurarse de que el ventilador esté apagado
+  digitalWrite(PELTIER_FRIO_PIN, LOW);  // Apagar celda de frío
+  digitalWrite(PELTIER_CALOR_PIN, LOW);  // Apagar celda de calor
     
   // Iniciar I2C
   Wire.begin(SDA_PIN, SCL_PIN);
@@ -103,36 +109,58 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
   }
 
-  // Control manual y automático de los coolers
-  if (String(topic) == "control/manual/coolers" || String(topic) == "control/automatico/coolers") {
+  // Control manual y automático del extractor
+  if (String(topic) == "control/manual/extractor" || String(topic) == "control/automatico/extractor") {
     if (message == "on") {
-      digitalWrite(COOLERS_PIN, HIGH);  // Encender coolers
-      Serial.println("Coolers encendidos");
+      digitalWrite(EXTRACTOR_PIN, HIGH);  // Encender extractor
+      Serial.println(" encendidos");
     } else if (message == "off") {
-      digitalWrite(COOLERS_PIN, LOW);  // Apagar coolers
-      Serial.println("Coolers apagados");
+      digitalWrite(EXTRACTOR_PIN, LOW);  // Apagar extractor
+      Serial.println("Extractor apagado");
     }
   }
 
   // Control manual y automático del humidificador
   if (String(topic) == "control/manual/humidificador" || String(topic) == "control/automatico/humidificador") {
     if (message == "on") {
-      digitalWrite(PUMP_PIN, HIGH);  // Encender humidificador
-      Serial.println("Humidificador encendidos");
+      digitalWrite(HUMIDIFICADOR_PIN, HIGH);  // Encender humidificador
+      Serial.println("Humidificador encendido");
     } else if (message == "off") {
-      digitalWrite(PUMP_PIN, LOW);  // Apagar humidificador
+      digitalWrite(HUMIDIFICADOR_PIN, LOW);  // Apagar humidificador
       Serial.println("Humidificador apagado");
     }
   }
 
-  // Control manual y automático del Peltier
-  if (String(topic) == "control/manual/peltier" || String(topic) == "control/automatico/peltier") {
+  // Control manual y automático del ventilador
+  if (String(topic) == "control/manual/ventilador" || String(topic) == "control/automatico/ventilador") {
     if (message == "on") {
-      digitalWrite(PELTIER_PIN, HIGH);  // Encender Peltier
-      Serial.println("Peltier encendido");
+      digitalWrite(VENTILADOR_PIN, HIGH);  // Encender ventilador
+      Serial.println("Ventilador encendido");
     } else if (message == "off") {
-      digitalWrite(PELTIER_PIN, LOW);  // Apagar Peltier
-      Serial.println("Peltier apagado");
+      digitalWrite(VENTILADOR_PIN, LOW);  // Apagar ventilador
+      Serial.println("Ventilador apagado");
+    }
+  }
+  
+  // Control manual y automático del Peltier Frio
+  if (String(topic) == "control/manual/peltier/frio" || String(topic) == "control/automatico/peltier/frio") {
+    if (message == "on") {
+      digitalWrite(PELTIER_FRIO_PIN, HIGH);  // Encender Peltier frio
+      Serial.println("Peltier frio encendido");
+    } else if (message == "off") {
+      digitalWrite(PELTIER_FRIO_PIN, LOW);  // Apagar Peltier frio
+      Serial.println("Peltier frio apagado");
+    }
+  }
+
+  // Control manual y automático del Peltier Caliente
+  if (String(topic) == "control/manual/peltier/caliente" || String(topic) == "control/automatico/peltier/caliente") {
+    if (message == "on") {
+      digitalWrite(PELTIER_CALOR_PIN, HIGH);  // Encender Peltier caliente
+      Serial.println("Peltier calor encendido");
+    } else if (message == "off") {
+      digitalWrite(PELTIER_CALOR_PIN, LOW);  // Apagar Peltier caliente
+      Serial.println("Peltier calor apagado");
     }
   }
 }
@@ -147,11 +175,15 @@ void reconnect() {
       client.subscribe("event");  // Suscribirse a un tema
       client.subscribe("control/manual/led");  // Suscribirse al tema para el control del LED
       client.subscribe("control/manual/humidificador"); // Suscribirse al tema para el control del humidificador
-      client.subscribe("control/manual/coolers"); // Suscribirse al tema para el control de coolers
-      client.subscribe("control/manual/peltier"); // Suscribirse al tema para el control del Peltier
+      client.subscribe("control/manual/extractor"); // Suscribirse al tema para el control del extractor
+      client.subscribe("control/manual/ventilador"); // Suscribirse al tema para el control del ventilador
+      client.subscribe("control/manual/peltier/frio"); // Suscribirse al tema para el control del Peltier frío
+      client.subscribe("control/manual/peltier/caliente"); // Suscribirse al tema para el control del Peltier caliente
       client.subscribe("control/automatico/humidificador"); // Suscribirse al tema para el control del humidificador
-      client.subscribe("control/automatico/coolers"); // Suscribirse al tema para el control de coolers
-      client.subscribe("control/automatico/peltier"); // Suscribirse al tema para el control del Peltier
+      client.subscribe("control/automatico/extractor"); // Suscribirse al tema para el control del extractor
+      client.subscribe("control/automatico/ventilador"); // Suscribirse al tema para el control del ventilador
+      client.subscribe("control/automatico/peltier/frio"); // Suscribirse al tema para el control del Peltier frío
+      client.subscribe("control/automatico/peltier/caliente"); // Suscribirse al tema para el control del Peltier caliente
     } else {
       Serial.print("fallo, rc=");
       Serial.print(client.state());
@@ -188,7 +220,7 @@ void loop() {
 
     // Publicar valores de temperatura, humedad, luz y gas
     client.publish("tempaire/sensordht11", String(temperatureC).c_str());
-    client.publish("humidity/sensordht11", String(humidity).c_str());
+    client.publish("humedad/sensordht11", String(humidity).c_str());
     //client.publish("light/sensorldr", String(ldrValue).c_str());
     client.publish("gas/sensormq2", String(mq2Value).c_str());
 
