@@ -1,0 +1,248 @@
+[
+    {
+        "id": "18f99e3a39e8316a",
+        "type": "tab",
+        "label": "Temperatura y Humedad (DHT11)",
+        "disabled": false,
+        "info": "Flujo para recibir y visualizar datos de temperatura y humedad del sensor DHT11 a través de MQTT."
+    },
+    {
+        "id": "e9365e69e06f23c9",
+        "type": "mqtt in",
+        "z": "18f99e3a39e8316a",
+        "name": "MQTT Entrada Temperatura",
+        "topic": "tempaire/sensordht11",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "62c0b02f83863afb"
+            ]
+        ]
+    },
+    {
+        "id": "62c0b02f83863afb",
+        "type": "function",
+        "z": "18f99e3a39e8316a",
+        "name": "Convertir a número (Temp)",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "2b63577d48d0e768",
+                "8c9197c36d0a7a35"
+            ]
+        ]
+    },
+    {
+        "id": "2b63577d48d0e768",
+        "type": "ui_gauge",
+        "z": "18f99e3a39e8316a",
+        "name": "Medidor de Temperatura",
+        "group": "e14b149b1ff30b6e",
+        "order": 0,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Temperatura (°C)",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#0099cc",
+            "#ff9900",
+            "#ff3300"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 640,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c62061e88849646b",
+        "type": "mqtt in",
+        "z": "18f99e3a39e8316a",
+        "name": "MQTT Entrada Humedad",
+        "topic": "humidity/sensordht11",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "0f496109e25b15b0"
+            ]
+        ]
+    },
+    {
+        "id": "0f496109e25b15b0",
+        "type": "function",
+        "z": "18f99e3a39e8316a",
+        "name": "Convertir a número (Humedad)",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "63e800d922a938c5",
+                "93892795f6610086"
+            ]
+        ]
+    },
+    {
+        "id": "63e800d922a938c5",
+        "type": "ui_gauge",
+        "z": "18f99e3a39e8316a",
+        "name": "Medidor de Humedad",
+        "group": "e14b149b1ff30b6e",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Humedad (%)",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#0099cc",
+            "#ff9900",
+            "#ff3300"
+        ],
+        "seg1": "40",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 640,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8c9197c36d0a7a35",
+        "type": "ui_chart",
+        "z": "18f99e3a39e8316a",
+        "name": "Gráfico de Temperatura",
+        "group": "e14b149b1ff30b6e",
+        "order": 2,
+        "width": "6",
+        "height": "4",
+        "label": "Histórico de Temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "93892795f6610086",
+        "type": "ui_chart",
+        "z": "18f99e3a39e8316a",
+        "name": "Gráfico de Humedad",
+        "group": "e14b149b1ff30b6e",
+        "order": 3,
+        "width": "6",
+        "height": "4",
+        "label": "Histórico de Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.12",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e14b149b1ff30b6e",
+        "type": "ui_group",
+        "name": "Temperatura y Humedad",
+        "tab": "e0735e081ffc8f47",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e0735e081ffc8f47",
+        "type": "ui_tab",
+        "name": "INICIO",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false,
+        "info": "Pestaña de inicio del sistema MARTECH"
+    }
+]
