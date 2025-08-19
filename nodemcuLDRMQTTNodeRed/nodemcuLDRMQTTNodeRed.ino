@@ -5,11 +5,11 @@
 // --- Configuración de la red y el servidor MQTT ---
 
 // Reemplaza con el nombre de tu red WiFi
-const char* ssid = "ASP"; 
+const char* ssid = "MOVISTAR WIFI4497"; 
 // Reemplaza con la contraseña de tu red WiFi
-const char* password = "asp110110"; 
+const char* password = "689ms4283kxz7ge"; 
 // Reemplaza con la dirección IP o dominio de tu servidor MQTT
-const char* mqtt_server = "192.168.1.13"; 
+const char* mqtt_server = "10.50.139.113"; 
 
 // --- Variables globales y de estado ---
 
