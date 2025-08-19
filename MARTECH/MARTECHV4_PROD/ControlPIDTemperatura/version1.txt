@@ -1,0 +1,8 @@
+- Control manual y automático: Mantiene el control manual y automático de las celdas
+Peltier y del ventilador.
+- Control PID: Se mantiene el control PID para ajustar la temperatura según el valor
+deseado (Setpoint).
+- Este código controla las celdas Peltier y el ventilador para mantener la temperatura
+estable utilizando un PID, y permite el control manual a través de MQTT.
+
+

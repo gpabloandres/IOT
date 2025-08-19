@@ -1,0 +1,9 @@
+- Cambia denominación de cooler a extractor.
+- Cambia denominación de Peltier a ventilador.
+- Cambia denominación de PUMP a Humidificador.
+- Agrega control manual y automático para cada una de las 2 celdas Peltier:
+	- P/ Frio
+	- P/ Calor
+- Lógica del relé: Ahora, en el bloque de código MQTT que antes controlaba
+el LED interno (LED_PIN), se controla el relé (RELAY_PIN) para encender y
+apagar la tira LED.

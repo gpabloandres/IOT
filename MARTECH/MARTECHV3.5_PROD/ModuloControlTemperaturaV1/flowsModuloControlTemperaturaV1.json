@@ -1,0 +1,628 @@
+[
+    {
+        "id": "6cf5377d4517426f",
+        "type": "tab",
+        "label": "ControlTemperaturaV1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea3d3ec64c15c89c",
+        "type": "group",
+        "z": "6cf5377d4517426f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a192be7a2aca11e9",
+            "aaeaf4a7f78428b0",
+            "f20e7a97329abd14",
+            "e0f58e1b3aec90aa",
+            "09c3ebee63bad813",
+            "9a6c408e024cd3c0",
+            "93937bd0ddbfcd8f",
+            "fce4641e16b41068"
+        ],
+        "x": 354,
+        "y": 79,
+        "w": 912,
+        "h": 222
+    },
+    {
+        "id": "224871b6a7ae2993",
+        "type": "group",
+        "z": "6cf5377d4517426f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2559ef4304f660a4",
+            "40fd96cf49bb8a93",
+            "37ca83c0bbf5da48",
+            "3d18cca1537a09f9",
+            "996b5ee4f9d0c5b5",
+            "d3bd878bc44277b0"
+        ],
+        "x": 354,
+        "y": 359,
+        "w": 612,
+        "h": 262
+    },
+    {
+        "id": "8f728c49e9c23cc3",
+        "type": "group",
+        "z": "6cf5377d4517426f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "04b8f84cb805b715",
+            "020f4e8bdd3ecfdf"
+        ],
+        "x": 354,
+        "y": 679,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "1663d2d56e7edf85",
+        "type": "mqtt in",
+        "z": "6cf5377d4517426f",
+        "name": "",
+        "topic": "tempaire/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "a192be7a2aca11e9",
+                "40fd96cf49bb8a93",
+                "aaeaf4a7f78428b0",
+                "04b8f84cb805b715",
+                "f20e7a97329abd14",
+                "3d18cca1537a09f9",
+                "996b5ee4f9d0c5b5"
+            ]
+        ]
+    },
+    {
+        "id": "50aa087d53f4f3c3",
+        "type": "comment",
+        "z": "6cf5377d4517426f",
+        "name": "INTERFAZ | TEMPERATURA AIRE",
+        "info": "",
+        "x": 480,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5da9c662f8686cfc",
+        "type": "comment",
+        "z": "6cf5377d4517426f",
+        "name": "TEMPERATURA AIRE",
+        "info": "",
+        "x": 140,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3d5476717f9db92c",
+        "type": "comment",
+        "z": "6cf5377d4517426f",
+        "name": "LÓGICA | TEMPERATURA AIRE",
+        "info": "",
+        "x": 470,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "feef21f4b9bd1931",
+        "type": "comment",
+        "z": "6cf5377d4517426f",
+        "name": "BASE DE DATOS | TEMPERATURA AIRE",
+        "info": "",
+        "x": 500,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a192be7a2aca11e9",
+        "type": "ui_chart",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "Chart TempAire",
+        "group": "f7ef0a7d95274bc0",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aaeaf4a7f78428b0",
+        "type": "ui_gauge",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "Medidor TempAire",
+        "group": "f7ef0a7d95274bc0",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "40",
+        "colors": [
+            "#b32400",
+            "#e6e600",
+            "#74cb3a"
+        ],
+        "seg1": "0",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f20e7a97329abd14",
+        "type": "switch",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "20",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "20",
+                "vt": "num",
+                "v2": "24",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "24",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "e0f58e1b3aec90aa"
+            ],
+            [
+                "9a6c408e024cd3c0"
+            ],
+            [
+                "fce4641e16b41068"
+            ]
+        ]
+    },
+    {
+        "id": "e0f58e1b3aec90aa",
+        "type": "change",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "TempAireBaja",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Baja (Peltier On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 180,
+        "wires": [
+            [
+                "93937bd0ddbfcd8f"
+            ]
+        ]
+    },
+    {
+        "id": "09c3ebee63bad813",
+        "type": "ui_text",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "group": "f7ef0a7d95274bc0",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "Información Temperatura",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9a6c408e024cd3c0",
+        "type": "change",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "TempAireNormal",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal (Extractor Off)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 220,
+        "wires": [
+            [
+                "93937bd0ddbfcd8f"
+            ]
+        ]
+    },
+    {
+        "id": "93937bd0ddbfcd8f",
+        "type": "rbe",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 220,
+        "wires": [
+            [
+                "09c3ebee63bad813"
+            ]
+        ]
+    },
+    {
+        "id": "fce4641e16b41068",
+        "type": "change",
+        "z": "6cf5377d4517426f",
+        "g": "ea3d3ec64c15c89c",
+        "name": "TempAireAlta",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alta(Extractor On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "93937bd0ddbfcd8f"
+            ]
+        ]
+    },
+    {
+        "id": "2559ef4304f660a4",
+        "type": "mqtt out",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "",
+        "topic": "control/automatico/peltier/caliente",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 800,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "40fd96cf49bb8a93",
+        "type": "change",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37ca83c0bbf5da48",
+        "type": "mqtt out",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "",
+        "topic": "control/automatico/peltier/frio",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 780,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3d18cca1537a09f9",
+        "type": "function",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "Check temperaturaAlta",
+        "func": "let temperatura = parseFloat(msg.payload);\nif (temperatura > 24) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "37ca83c0bbf5da48",
+                "d3bd878bc44277b0"
+            ]
+        ]
+    },
+    {
+        "id": "996b5ee4f9d0c5b5",
+        "type": "function",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "Check temperaturaBaja",
+        "func": "let temperatura = parseFloat(msg.payload);\nif (temperatura < 20) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 580,
+        "wires": [
+            [
+                "2559ef4304f660a4",
+                "d3bd878bc44277b0"
+            ]
+        ]
+    },
+    {
+        "id": "d3bd878bc44277b0",
+        "type": "mqtt out",
+        "z": "6cf5377d4517426f",
+        "g": "224871b6a7ae2993",
+        "name": "",
+        "topic": "control/automatico/ventilador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 780,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "04b8f84cb805b715",
+        "type": "function",
+        "z": "6cf5377d4517426f",
+        "g": "8f728c49e9c23cc3",
+        "name": "insert tempAire",
+        "func": "var tempAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(tempAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 720,
+        "wires": [
+            [
+                "020f4e8bdd3ecfdf"
+            ]
+        ]
+    },
+    {
+        "id": "020f4e8bdd3ecfdf",
+        "type": "influxdb out",
+        "z": "6cf5377d4517426f",
+        "g": "8f728c49e9c23cc3",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio tempAire",
+        "measurement": "temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 700,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.31",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f7ef0a7d95274bc0",
+        "type": "ui_group",
+        "name": "Temperatura Aire",
+        "tab": "075debd59f9fef32",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "075debd59f9fef32",
+        "type": "ui_tab",
+        "name": "Sensores | Estados",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]

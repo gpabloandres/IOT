@@ -1,0 +1,703 @@
+[
+    {
+        "id": "899605db2a22fbfc",
+        "type": "tab",
+        "label": "ControlGasV1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ac494c28028431c",
+        "type": "group",
+        "z": "899605db2a22fbfc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "e57ae9efe04b23d4",
+            "0aeb1b6f19ccf79b",
+            "8ab57068780436cb",
+            "eaf8466f0b0c8720",
+            "2487ae9ff08c0114",
+            "193e48de70b73bc1",
+            "2bab6a634ad2a8e9"
+        ],
+        "x": 354,
+        "y": 79,
+        "w": 872,
+        "h": 202
+    },
+    {
+        "id": "9ebdf7523b9b211a",
+        "type": "group",
+        "z": "899605db2a22fbfc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5546a0cb77392b11",
+            "f03325869406c4d4",
+            "fc89785ea69557ed"
+        ],
+        "x": 354,
+        "y": 339,
+        "w": 572,
+        "h": 142
+    },
+    {
+        "id": "9b408c0eb504f5d5",
+        "type": "group",
+        "z": "899605db2a22fbfc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a77c5de5959fa89e",
+            "d1711a3a668d3bd1"
+        ],
+        "x": 354,
+        "y": 539,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "a3a6a6bd53697e0a",
+        "type": "group",
+        "z": "899605db2a22fbfc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c7b89050f82e3cd8",
+            "dbc987df1005fa66",
+            "a3ef67529e4dd2e9"
+        ],
+        "x": 54,
+        "y": 739,
+        "w": 512,
+        "h": 142
+    },
+    {
+        "id": "99c44d0c6094c01b",
+        "type": "mqtt in",
+        "z": "899605db2a22fbfc",
+        "name": "",
+        "topic": "gas/sensormq2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "e57ae9efe04b23d4",
+                "5546a0cb77392b11",
+                "0aeb1b6f19ccf79b",
+                "a77c5de5959fa89e",
+                "8ab57068780436cb",
+                "fc89785ea69557ed"
+            ]
+        ]
+    },
+    {
+        "id": "4164298313c571dd",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "INTERFAZ | CALIDAD AIRE (CO2)",
+        "info": "",
+        "x": 480,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9bbcdee8994015d4",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "LÓGICA | CO2",
+        "info": "",
+        "x": 420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "286b26e9a006ef8c",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "BASE DE DATOS | CO2",
+        "info": "",
+        "x": 450,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e33255e756d404d2",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "CALIDAD AIRE",
+        "info": "",
+        "x": 120,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e57ae9efe04b23d4",
+        "type": "ui_gauge",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "Medidor GasCO2",
+        "group": "1bad6d2d344b6bf8",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "wave",
+        "title": "",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#2ed600",
+            "#e6de00",
+            "#d62b00"
+        ],
+        "seg1": "2500",
+        "seg2": "7500",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0aeb1b6f19ccf79b",
+        "type": "ui_chart",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "Chart GasCO2",
+        "group": "1bad6d2d344b6bf8",
+        "order": 11,
+        "width": 6,
+        "height": 4,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "10000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 760,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ab57068780436cb",
+        "type": "switch",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "10000",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "10000",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "eaf8466f0b0c8720"
+            ],
+            [
+                "2bab6a634ad2a8e9"
+            ]
+        ]
+    },
+    {
+        "id": "eaf8466f0b0c8720",
+        "type": "change",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "GasCO2Normal",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal (Extractor Off)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "193e48de70b73bc1"
+            ]
+        ]
+    },
+    {
+        "id": "2487ae9ff08c0114",
+        "type": "ui_text",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "group": "1bad6d2d344b6bf8",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Información Gas CO2",
+        "label": "Nivel Gas CO2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "193e48de70b73bc1",
+        "type": "rbe",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 890,
+        "y": 220,
+        "wires": [
+            [
+                "2487ae9ff08c0114"
+            ]
+        ]
+    },
+    {
+        "id": "2bab6a634ad2a8e9",
+        "type": "change",
+        "z": "899605db2a22fbfc",
+        "g": "1ac494c28028431c",
+        "name": "GasCO2Alto",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alta (Extractor On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 240,
+        "wires": [
+            [
+                "193e48de70b73bc1"
+            ]
+        ]
+    },
+    {
+        "id": "5546a0cb77392b11",
+        "type": "change",
+        "z": "899605db2a22fbfc",
+        "g": "9ebdf7523b9b211a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gasCO2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f03325869406c4d4",
+        "type": "mqtt out",
+        "z": "899605db2a22fbfc",
+        "g": "9ebdf7523b9b211a",
+        "name": "",
+        "topic": "control/automatico/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 780,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "fc89785ea69557ed",
+        "type": "function",
+        "z": "899605db2a22fbfc",
+        "g": "9ebdf7523b9b211a",
+        "name": "Check CO2Alto",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad > 95) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "f03325869406c4d4"
+            ]
+        ]
+    },
+    {
+        "id": "a77c5de5959fa89e",
+        "type": "function",
+        "z": "899605db2a22fbfc",
+        "g": "9b408c0eb504f5d5",
+        "name": "insert GasCO2",
+        "func": "var GasCO2 =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(GasCO2),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 580,
+        "wires": [
+            [
+                "d1711a3a668d3bd1"
+            ]
+        ]
+    },
+    {
+        "id": "d1711a3a668d3bd1",
+        "type": "influxdb out",
+        "z": "899605db2a22fbfc",
+        "g": "9b408c0eb504f5d5",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio GasCO2",
+        "measurement": "GasCO2",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 700,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ce12eb7f62b0608e",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "EXTRACTOR",
+        "info": "",
+        "x": 110,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c7b89050f82e3cd8",
+        "type": "ui_switch",
+        "z": "899605db2a22fbfc",
+        "g": "a3a6a6bd53697e0a",
+        "name": "On/Off Extractor",
+        "label": "Extractor",
+        "tooltip": "",
+        "group": "c40c2b7590efb140",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 160,
+        "y": 780,
+        "wires": [
+            [
+                "dbc987df1005fa66",
+                "a3ef67529e4dd2e9"
+            ]
+        ]
+    },
+    {
+        "id": "dbc987df1005fa66",
+        "type": "mqtt out",
+        "z": "899605db2a22fbfc",
+        "g": "a3a6a6bd53697e0a",
+        "name": "",
+        "topic": "control/manual/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 430,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "a3ef67529e4dd2e9",
+        "type": "ui_statetrail",
+        "z": "899605db2a22fbfc",
+        "g": "a3a6a6bd53697e0a",
+        "group": "adb4fa0943ad5c0d",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 380,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1aed3ecd4ece4120",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "CONTROL AUTOMÁTICO",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9a53d857130106a9",
+        "type": "comment",
+        "z": "899605db2a22fbfc",
+        "name": "CONTROL MANUAL",
+        "info": "",
+        "x": 110,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.31",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1bad6d2d344b6bf8",
+        "type": "ui_group",
+        "name": "Gas CO2",
+        "tab": "075debd59f9fef32",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "c40c2b7590efb140",
+        "type": "ui_group",
+        "name": "Cooler",
+        "tab": "f7214b781de0afa0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "adb4fa0943ad5c0d",
+        "type": "ui_group",
+        "name": "Humidificador",
+        "tab": "f7214b781de0afa0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "075debd59f9fef32",
+        "type": "ui_tab",
+        "name": "Sensores | Estados",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f7214b781de0afa0",
+        "type": "ui_tab",
+        "name": "Actuadores | Check",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]

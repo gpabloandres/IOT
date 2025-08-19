@@ -1,0 +1,969 @@
+[
+    {
+        "id": "7a4e91ef0abfcf97",
+        "type": "tab",
+        "label": "ControlHumedadV1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6546145044660389",
+        "type": "group",
+        "z": "7a4e91ef0abfcf97",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7f3b6bc2853f3c33",
+            "cd23e267d39d3455",
+            "c7f9b2b9b5149d4e",
+            "aaf35e187b323c78",
+            "a81cb0226c0df401",
+            "8c731264262219c8",
+            "3060693026fde64c",
+            "029dd0b06ce28b89"
+        ],
+        "x": 354,
+        "y": 79,
+        "w": 892,
+        "h": 222
+    },
+    {
+        "id": "95621f3b6d39ff6b",
+        "type": "group",
+        "z": "7a4e91ef0abfcf97",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "0df2e6206c0f7341",
+            "29ecf3333ba476bc",
+            "398a83b33840af82",
+            "608e9da0948f0f34",
+            "88a644bdf6d22201",
+            "b5377069ce107b69"
+        ],
+        "x": 354,
+        "y": 359,
+        "w": 592,
+        "h": 262
+    },
+    {
+        "id": "b0b9aedb4e25dcb3",
+        "type": "group",
+        "z": "7a4e91ef0abfcf97",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "26c9cd77c8782f27",
+            "39ca91acecf9cca8"
+        ],
+        "x": 354,
+        "y": 679,
+        "w": 472,
+        "h": 82
+    },
+    {
+        "id": "d2d62835206f7e19",
+        "type": "group",
+        "z": "7a4e91ef0abfcf97",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5a455a00f1153fac",
+            "3e448ff21de60f06",
+            "aa46d70879408d25"
+        ],
+        "x": 54,
+        "y": 879,
+        "w": 512,
+        "h": 142
+    },
+    {
+        "id": "10779ef972de63a1",
+        "type": "group",
+        "z": "7a4e91ef0abfcf97",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "bf3d0f799c27d623",
+            "49cacbdf850332eb",
+            "1d0bdfb158d530b9",
+            "541d845f2d977bd8"
+        ],
+        "x": 54,
+        "y": 1079,
+        "w": 572,
+        "h": 202
+    },
+    {
+        "id": "225a327352552bec",
+        "type": "mqtt in",
+        "z": "7a4e91ef0abfcf97",
+        "name": "",
+        "topic": "humidity/sensordht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7472c28e84850c59",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "7f3b6bc2853f3c33",
+                "0df2e6206c0f7341",
+                "cd23e267d39d3455",
+                "26c9cd77c8782f27",
+                "c7f9b2b9b5149d4e",
+                "398a83b33840af82",
+                "608e9da0948f0f34"
+            ]
+        ]
+    },
+    {
+        "id": "096f40dcbbe47f53",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "INTERFAZ | HUMEDAD AIRE",
+        "info": "",
+        "x": 460,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "84a0b113b951f21b",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "LÓGICA | HUMEDAD AIRE",
+        "info": "",
+        "x": 450,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6f6cbe9eb78c00f3",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "BASE DE DATOS | HUMEDAD AIRE",
+        "info": "",
+        "x": 480,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b2bdb79797da43fe",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "HUMEDAD AIRE",
+        "info": "",
+        "x": 120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7f3b6bc2853f3c33",
+        "type": "ui_gauge",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "Medidor HumedAire",
+        "group": "5410245fc496bf6b",
+        "order": 1,
+        "width": 6,
+        "height": 5,
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#db1600",
+            "#e6de00",
+            "#2ed600"
+        ],
+        "seg1": "20",
+        "seg2": "85",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cd23e267d39d3455",
+        "type": "ui_chart",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "Chart HumedAire",
+        "group": "5410245fc496bf6b",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Cargando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7f9b2b9b5149d4e",
+        "type": "switch",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "85",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "85",
+                "vt": "num",
+                "v2": "95",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "95",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "aaf35e187b323c78"
+            ],
+            [
+                "8c731264262219c8"
+            ],
+            [
+                "029dd0b06ce28b89"
+            ]
+        ]
+    },
+    {
+        "id": "aaf35e187b323c78",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "HumedadAireBaja",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Baja (Humidificador On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "3060693026fde64c"
+            ]
+        ]
+    },
+    {
+        "id": "a81cb0226c0df401",
+        "type": "ui_text",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "group": "5410245fc496bf6b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Información Humedad",
+        "label": "Humedad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "estado",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1120,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8c731264262219c8",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "HumedadAireNormal",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Normal (Humidificador Off)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "3060693026fde64c"
+            ]
+        ]
+    },
+    {
+        "id": "3060693026fde64c",
+        "type": "rbe",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 220,
+        "wires": [
+            [
+                "a81cb0226c0df401"
+            ]
+        ]
+    },
+    {
+        "id": "029dd0b06ce28b89",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "6546145044660389",
+        "name": "HumedadAireAlta",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alta (Extractor On)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "3060693026fde64c"
+            ]
+        ]
+    },
+    {
+        "id": "0df2e6206c0f7341",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humedAire",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29ecf3333ba476bc",
+        "type": "mqtt out",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "",
+        "topic": "control/automatico/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 780,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "398a83b33840af82",
+        "type": "function",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "Check humedadAlta",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad > 95) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "29ecf3333ba476bc"
+            ]
+        ]
+    },
+    {
+        "id": "608e9da0948f0f34",
+        "type": "function",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "Check humedadBaja",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad < 85) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 520,
+        "wires": [
+            [
+                "88a644bdf6d22201",
+                "b5377069ce107b69"
+            ]
+        ]
+    },
+    {
+        "id": "88a644bdf6d22201",
+        "type": "mqtt out",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "",
+        "topic": "control/automatico/humidificador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b5377069ce107b69",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "95621f3b6d39ff6b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humidificadorAuto",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26c9cd77c8782f27",
+        "type": "function",
+        "z": "7a4e91ef0abfcf97",
+        "g": "b0b9aedb4e25dcb3",
+        "name": "insert humedAire",
+        "func": "var humedAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(humedAire),\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 720,
+        "wires": [
+            [
+                "39ca91acecf9cca8"
+            ]
+        ]
+    },
+    {
+        "id": "39ca91acecf9cca8",
+        "type": "influxdb out",
+        "z": "7a4e91ef0abfcf97",
+        "g": "b0b9aedb4e25dcb3",
+        "influxdb": "3750e8ce.607c08",
+        "name": "envio humedAire",
+        "measurement": "humedad",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "GPA",
+        "bucket": "MARTECH",
+        "x": 710,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "595ecbb31c35c81b",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "EXTRACTOR",
+        "info": "",
+        "x": 110,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "5a455a00f1153fac",
+        "type": "ui_switch",
+        "z": "7a4e91ef0abfcf97",
+        "g": "d2d62835206f7e19",
+        "name": "On/Off Extractor",
+        "label": "Extractor",
+        "tooltip": "",
+        "group": "c40c2b7590efb140",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 160,
+        "y": 920,
+        "wires": [
+            [
+                "3e448ff21de60f06",
+                "aa46d70879408d25"
+            ]
+        ]
+    },
+    {
+        "id": "3e448ff21de60f06",
+        "type": "mqtt out",
+        "z": "7a4e91ef0abfcf97",
+        "g": "d2d62835206f7e19",
+        "name": "",
+        "topic": "control/manual/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 430,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "aa46d70879408d25",
+        "type": "ui_statetrail",
+        "z": "7a4e91ef0abfcf97",
+        "g": "d2d62835206f7e19",
+        "group": "adb4fa0943ad5c0d",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 380,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cb6a7800190352a",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "CONTROL AUTOMÁTICO",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6480f1129392c8f4",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "CONTROL MANUAL",
+        "info": "",
+        "x": 110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "e4f5c64be1e0b72f",
+        "type": "comment",
+        "z": "7a4e91ef0abfcf97",
+        "name": "HUMIDIFICADOR",
+        "info": "",
+        "x": 130,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "bf3d0f799c27d623",
+        "type": "mqtt out",
+        "z": "7a4e91ef0abfcf97",
+        "g": "10779ef972de63a1",
+        "name": "",
+        "topic": "control/manual/humidificador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 480,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "49cacbdf850332eb",
+        "type": "ui_switch",
+        "z": "7a4e91ef0abfcf97",
+        "g": "10779ef972de63a1",
+        "name": "On/Off Humidificador",
+        "label": "Humidificador",
+        "tooltip": "",
+        "group": "adb4fa0943ad5c0d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 1180,
+        "wires": [
+            [
+                "bf3d0f799c27d623",
+                "1d0bdfb158d530b9",
+                "541d845f2d977bd8"
+            ]
+        ]
+    },
+    {
+        "id": "1d0bdfb158d530b9",
+        "type": "ui_statetrail",
+        "z": "7a4e91ef0abfcf97",
+        "g": "10779ef972de63a1",
+        "group": "adb4fa0943ad5c0d",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 420,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "541d845f2d977bd8",
+        "type": "change",
+        "z": "7a4e91ef0abfcf97",
+        "g": "10779ef972de63a1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humidificadorManual",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7472c28e84850c59",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.31",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5410245fc496bf6b",
+        "type": "ui_group",
+        "name": "Humedad Aire",
+        "tab": "075debd59f9fef32",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3750e8ce.607c08",
+        "type": "influxdb",
+        "hostname": "192.168.0.19",
+        "port": "8086",
+        "database": "mydb",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086/",
+        "timeout": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "c40c2b7590efb140",
+        "type": "ui_group",
+        "name": "Cooler",
+        "tab": "f7214b781de0afa0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "adb4fa0943ad5c0d",
+        "type": "ui_group",
+        "name": "Humidificador",
+        "tab": "f7214b781de0afa0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "075debd59f9fef32",
+        "type": "ui_tab",
+        "name": "Sensores | Estados",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f7214b781de0afa0",
+        "type": "ui_tab",
+        "name": "Actuadores | Check",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]

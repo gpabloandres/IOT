@@ -2,10 +2,481 @@
     {
         "id": "c6b192cd3951d272",
         "type": "tab",
-        "label": "MARTECHV3_PROD",
+        "label": "MARTECHV3.5_PROD",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "d73890dcb537570f",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5a6a802dd68b3458",
+            "e70f15ed956d707b",
+            "9e6b7a3b4ff88cb9",
+            "b29697c1abfc4669",
+            "fb79d911b4729ff6",
+            "c5112b7fa0b203e0",
+            "a17cf55ecc18318b",
+            "902efbf279b1a232"
+        ],
+        "x": 374,
+        "y": 259,
+        "w": 912,
+        "h": 222
+    },
+    {
+        "id": "d69d4b5de513a26e",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "e7524651801161b4",
+            "8be1dc8beecf9f85",
+            "16ef81eb0d48b53b",
+            "a5dfd96d7f509493",
+            "6b5d55f6f2fcc648",
+            "28f60c0a791e390c"
+        ],
+        "x": 374,
+        "y": 539,
+        "w": 612,
+        "h": 262
+    },
+    {
+        "id": "10c647bec5cb9f75",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f72a878fcaf63631",
+            "6cb27d4e4b638dfb",
+            "e3637ee1a9011eb7",
+            "2543a49168523d66",
+            "2ff846eb2a211f83",
+            "b31ed7daf173c2aa",
+            "786a217311156394",
+            "404c127724d58bd0"
+        ],
+        "x": 374,
+        "y": 1059,
+        "w": 892,
+        "h": 222
+    },
+    {
+        "id": "1614c4fbd22f1911",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "43e2e415c1b484f8",
+            "1c6162b1f3e0321a",
+            "7dec2722c76df9f6",
+            "855b68492a291292",
+            "5404929779d7ea71",
+            "355a29e892050720"
+        ],
+        "x": 374,
+        "y": 1339,
+        "w": 592,
+        "h": 262
+    },
+    {
+        "id": "1e97be6ed730589b",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2f17e28e05d2106c",
+            "ae20fa11ddfdd1cd"
+        ],
+        "x": 374,
+        "y": 1659,
+        "w": 472,
+        "h": 82
+    },
+    {
+        "id": "faa587ae0be55fdf",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "668f5c463f9a11ec",
+            "45c68ac418784cea",
+            "2aef0768791ca8ae",
+            "bc3c52dc5a28a3c6",
+            "086a675decf68982",
+            "8c3eb517a24030ef",
+            "26a50237a340e964"
+        ],
+        "x": 374,
+        "y": 1839,
+        "w": 872,
+        "h": 202
+    },
+    {
+        "id": "bc2acbfded25fae1",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d2aa7c6008e114c7",
+            "5e22c3290865d7ba",
+            "96cbd0ba881730a6"
+        ],
+        "x": 374,
+        "y": 2099,
+        "w": 572,
+        "h": 142
+    },
+    {
+        "id": "6674e506bc56482d",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "749fe2e58d2af6e2",
+            "b68b39f491b945fc"
+        ],
+        "x": 374,
+        "y": 859,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "c5b74d5bad13f999",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8574b34f430e385b",
+            "48752b29f1825a73"
+        ],
+        "x": 374,
+        "y": 2299,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "2f83f7eeacf505c2",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "69e7ad2e0158d80b",
+            "d98aa0ab8cf604e8",
+            "cada1bd1f0e1fe02",
+            "fe3d46393b301f43",
+            "9978689baa96adea",
+            "11cff35112785255",
+            "cfa8d4f30ba1fec7"
+        ],
+        "x": 374,
+        "y": 2479,
+        "w": 892,
+        "h": 182
+    },
+    {
+        "id": "5d4654de03fccc2b",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "cadb09bf78c4ec41",
+            "fbd2fd8465a99431",
+            "e4efb001963cc9f7",
+            "41f44b859f18ad9f"
+        ],
+        "x": 374,
+        "y": 2719,
+        "w": 672,
+        "h": 142
+    },
+    {
+        "id": "065563a83aea76a9",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ec10516e16bc6700",
+            "a93a79a33117d3b0"
+        ],
+        "x": 374,
+        "y": 2919,
+        "w": 472,
+        "h": 82
+    },
+    {
+        "id": "a78b62f74f454024",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "26abdbbebc01ed8f",
+            "2fc9cf5da8bc68ed",
+            "c3d57b8bc51f19d6",
+            "c9d39aa7fbf281b4"
+        ],
+        "x": 54,
+        "y": 3119,
+        "w": 792,
+        "h": 82
+    },
+    {
+        "id": "0189e7e7ad0625f7",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3fb05ac0fa11ed86",
+            "b3cd368ce8c9cc46",
+            "8d4a6aeb2a177c38",
+            "37238e36e0bd02cc",
+            "a1c50697c1877140",
+            "5e25a0392e250e6c",
+            "467666510c1ef4b4",
+            "cffd10300d6159e6",
+            "1854964b5f8ed73d",
+            "e9a48df2604a65dc"
+        ],
+        "x": 54,
+        "y": 4039,
+        "w": 1192,
+        "h": 262
+    },
+    {
+        "id": "ab24522b0344220b",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1d3f9c62015efd27",
+            "19e3f61eb27e8df6",
+            "aade0187c214e10f",
+            "26a8d0649a1602af"
+        ],
+        "x": 54,
+        "y": 3759,
+        "w": 572,
+        "h": 202
+    },
+    {
+        "id": "921d1786624ab6ac",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a5c1fd5ddb580359",
+            "eb75ed0390ecc6ba",
+            "eb52b61e7c45424d"
+        ],
+        "x": 54,
+        "y": 3559,
+        "w": 512,
+        "h": 142
+    },
+    {
+        "id": "2a3774cbf0b90c36",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6584f1e5a915ca62",
+            "bac6126f65a58628"
+        ],
+        "x": 34,
+        "y": 3399,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "b5fd4945606720ee",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "087953da47dc5896",
+            "d98bf4fd34fb681e",
+            "f35701211969bd9b",
+            "ff3f9c2e55374589",
+            "5b5504029a97c09e",
+            "f67b86fa977d3d41"
+        ],
+        "x": 1094,
+        "y": 3519,
+        "w": 872,
+        "h": 162
+    },
+    {
+        "id": "2f8b88135e91b627",
+        "type": "group",
+        "z": "c6b192cd3951d272",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "153572750768f598",
+            "dff31ccfe939f3e0",
+            "7ec630f7dcd0506a",
+            "1c011f3afea1612f",
+            "9c2050303de44216"
+        ],
+        "x": 44,
+        "y": 4399,
+        "w": 622,
+        "h": 142
     },
     {
         "id": "a1cc8db95fa83e4a",
@@ -19,15 +490,17 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 160,
-        "y": 360,
+        "x": 180,
+        "y": 560,
         "wires": [
             [
                 "5a6a802dd68b3458",
                 "8be1dc8beecf9f85",
                 "e70f15ed956d707b",
                 "749fe2e58d2af6e2",
-                "9e6b7a3b4ff88cb9"
+                "9e6b7a3b4ff88cb9",
+                "a5dfd96d7f509493",
+                "6b5d55f6f2fcc648"
             ]
         ]
     },
@@ -35,6 +508,7 @@
         "id": "5a6a802dd68b3458",
         "type": "ui_chart",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "Chart TempAire",
         "group": "f7ef0a7d95274bc0",
         "order": 2,
@@ -89,6 +563,7 @@
         "id": "8be1dc8beecf9f85",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
         "name": "",
         "rules": [
             {
@@ -104,8 +579,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 230,
-        "y": 280,
+        "x": 510,
+        "y": 580,
         "wires": [
             []
         ]
@@ -114,6 +589,7 @@
         "id": "e70f15ed956d707b",
         "type": "ui_gauge",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "Medidor TempAire",
         "group": "f7ef0a7d95274bc0",
         "order": 1,
@@ -150,15 +626,17 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 160,
-        "y": 680,
+        "x": 180,
+        "y": 1360,
         "wires": [
             [
                 "f72a878fcaf63631",
                 "43e2e415c1b484f8",
                 "6cb27d4e4b638dfb",
                 "2f17e28e05d2106c",
-                "e3637ee1a9011eb7"
+                "e3637ee1a9011eb7",
+                "7dec2722c76df9f6",
+                "855b68492a291292"
             ]
         ]
     },
@@ -166,6 +644,7 @@
         "id": "f72a878fcaf63631",
         "type": "ui_gauge",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "Medidor HumedAire",
         "group": "5410245fc496bf6b",
         "order": 1,
@@ -187,13 +666,14 @@
         "diff": false,
         "className": "",
         "x": 500,
-        "y": 620,
+        "y": 1100,
         "wires": []
     },
     {
         "id": "43e2e415c1b484f8",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
         "name": "",
         "rules": [
             {
@@ -209,8 +689,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 220,
-        "y": 600,
+        "x": 520,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -219,6 +699,7 @@
         "id": "6cb27d4e4b638dfb",
         "type": "ui_chart",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "Chart HumedAire",
         "group": "5410245fc496bf6b",
         "order": 2,
@@ -254,7 +735,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 770,
-        "y": 620,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -263,6 +744,7 @@
         "id": "749fe2e58d2af6e2",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "6674e506bc56482d",
         "name": "insert tempAire",
         "func": "var tempAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(tempAire),\n}];\nreturn msg;",
         "outputs": 1,
@@ -272,7 +754,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 520,
+        "y": 900,
         "wires": [
             [
                 "b68b39f491b945fc"
@@ -283,6 +765,7 @@
         "id": "b68b39f491b945fc",
         "type": "influxdb out",
         "z": "c6b192cd3951d272",
+        "g": "6674e506bc56482d",
         "influxdb": "3750e8ce.607c08",
         "name": "envio tempAire",
         "measurement": "temperatura",
@@ -293,19 +776,20 @@
         "org": "GPA",
         "bucket": "MARTECH",
         "x": 720,
-        "y": 520,
+        "y": 900,
         "wires": []
     },
     {
         "id": "26abdbbebc01ed8f",
         "type": "telegram receiver",
         "z": "c6b192cd3951d272",
+        "g": "a78b62f74f454024",
         "name": "Telegram Receiver",
         "bot": "426ccebbe959ebd3",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 150,
-        "y": 1640,
+        "x": 170,
+        "y": 3160,
         "wires": [
             [],
             []
@@ -315,6 +799,7 @@
         "id": "2f17e28e05d2106c",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "1e97be6ed730589b",
         "name": "insert humedAire",
         "func": "var humedAire =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(humedAire),\n}];\nreturn msg;",
         "outputs": 1,
@@ -324,7 +809,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 840,
+        "y": 1700,
         "wires": [
             [
                 "ae20fa11ddfdd1cd"
@@ -335,6 +820,7 @@
         "id": "ae20fa11ddfdd1cd",
         "type": "influxdb out",
         "z": "c6b192cd3951d272",
+        "g": "1e97be6ed730589b",
         "influxdb": "3750e8ce.607c08",
         "name": "envio humedAire",
         "measurement": "humedad",
@@ -345,13 +831,14 @@
         "org": "GPA",
         "bucket": "MARTECH",
         "x": 730,
-        "y": 840,
+        "y": 1700,
         "wires": []
     },
     {
         "id": "e3637ee1a9011eb7",
         "type": "switch",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -378,7 +865,7 @@
         "repair": false,
         "outputs": 3,
         "x": 470,
-        "y": 740,
+        "y": 1220,
         "wires": [
             [
                 "2543a49168523d66"
@@ -395,6 +882,7 @@
         "id": "6584f1e5a915ca62",
         "type": "ui_switch",
         "z": "c6b192cd3951d272",
+        "g": "2a3774cbf0b90c36",
         "name": "On/Off LED",
         "label": "LED",
         "tooltip": "",
@@ -418,7 +906,7 @@
         "animate": true,
         "className": "",
         "x": 130,
-        "y": 1800,
+        "y": 3440,
         "wires": [
             [
                 "bac6126f65a58628"
@@ -429,8 +917,9 @@
         "id": "bac6126f65a58628",
         "type": "mqtt out",
         "z": "c6b192cd3951d272",
+        "g": "2a3774cbf0b90c36",
         "name": "",
-        "topic": "control/led",
+        "topic": "control/manual/led",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -439,8 +928,8 @@
         "correl": "",
         "expiry": "",
         "broker": "7472c28e84850c59",
-        "x": 350,
-        "y": 1800,
+        "x": 370,
+        "y": 3440,
         "wires": []
     },
     {
@@ -455,8 +944,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 130,
-        "y": 1340,
+        "x": 150,
+        "y": 2720,
         "wires": [
             [
                 "cadb09bf78c4ec41",
@@ -472,11 +961,12 @@
         "id": "cadb09bf78c4ec41",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "5d4654de03fccc2b",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "luminosidad",
+                "p": "iluminancia",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -487,8 +977,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
-        "y": 1260,
+        "x": 520,
+        "y": 2760,
         "wires": [
             []
         ]
@@ -497,7 +987,8 @@
         "id": "69e7ad2e0158d80b",
         "type": "ui_gauge",
         "z": "c6b192cd3951d272",
-        "name": "Medidor Luminosidad",
+        "g": "2f83f7eeacf505c2",
+        "name": "Medidor Iluminancia",
         "group": "fefdc85aecc778de",
         "order": 2,
         "width": 4,
@@ -518,27 +1009,17 @@
         "diff": false,
         "className": "",
         "x": 500,
-        "y": 1280,
-        "wires": []
-    },
-    {
-        "id": "03b078be050834f5",
-        "type": "comment",
-        "z": "c6b192cd3951d272",
-        "name": "Sensores",
-        "info": "",
-        "x": 80,
-        "y": 200,
+        "y": 2520,
         "wires": []
     },
     {
         "id": "14fabfed97d61957",
         "type": "comment",
         "z": "c6b192cd3951d272",
-        "name": "Actuadores",
+        "name": "CONTROL MANUAL",
         "info": "",
-        "x": 90,
-        "y": 1740,
+        "x": 110,
+        "y": 3300,
         "wires": []
     },
     {
@@ -587,6 +1068,7 @@
         "id": "d98aa0ab8cf604e8",
         "type": "switch",
         "z": "c6b192cd3951d272",
+        "g": "2f83f7eeacf505c2",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -606,7 +1088,7 @@
         "repair": false,
         "outputs": 2,
         "x": 470,
-        "y": 1360,
+        "y": 2600,
         "wires": [
             [
                 "cada1bd1f0e1fe02"
@@ -620,7 +1102,8 @@
         "id": "cada1bd1f0e1fe02",
         "type": "change",
         "z": "c6b192cd3951d272",
-        "name": "LuminosidadNormal",
+        "g": "2f83f7eeacf505c2",
+        "name": "IluminanciaNormal",
         "rules": [
             {
                 "t": "set",
@@ -635,8 +1118,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
-        "y": 1340,
+        "x": 690,
+        "y": 2580,
         "wires": [
             [
                 "11cff35112785255"
@@ -647,6 +1130,7 @@
         "id": "fe3d46393b301f43",
         "type": "ui_text",
         "z": "c6b192cd3951d272",
+        "g": "2f83f7eeacf505c2",
         "group": "fefdc85aecc778de",
         "order": 11,
         "width": 6,
@@ -660,15 +1144,16 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1210,
-        "y": 1360,
+        "x": 1130,
+        "y": 2600,
         "wires": []
     },
     {
         "id": "9978689baa96adea",
         "type": "change",
         "z": "c6b192cd3951d272",
-        "name": "LuminosidadAlta",
+        "g": "2f83f7eeacf505c2",
+        "name": "IluminanciaAlta",
         "rules": [
             {
                 "t": "set",
@@ -683,8 +1168,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
-        "y": 1380,
+        "x": 680,
+        "y": 2620,
         "wires": [
             [
                 "11cff35112785255"
@@ -695,6 +1180,7 @@
         "id": "11cff35112785255",
         "type": "rbe",
         "z": "c6b192cd3951d272",
+        "g": "2f83f7eeacf505c2",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -703,8 +1189,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 950,
-        "y": 1360,
+        "x": 910,
+        "y": 2600,
         "wires": [
             [
                 "fe3d46393b301f43"
@@ -715,6 +1201,7 @@
         "id": "9e6b7a3b4ff88cb9",
         "type": "switch",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -758,6 +1245,7 @@
         "id": "b29697c1abfc4669",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "TempAireBaja",
         "rules": [
             {
@@ -785,6 +1273,7 @@
         "id": "fb79d911b4729ff6",
         "type": "ui_text",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "group": "f7ef0a7d95274bc0",
         "order": 3,
         "width": 6,
@@ -798,7 +1287,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1210,
+        "x": 1150,
         "y": 400,
         "wires": []
     },
@@ -806,6 +1295,7 @@
         "id": "c5112b7fa0b203e0",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "TempAireNormal",
         "rules": [
             {
@@ -833,6 +1323,7 @@
         "id": "a17cf55ecc18318b",
         "type": "rbe",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -841,7 +1332,7 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 990,
+        "x": 930,
         "y": 400,
         "wires": [
             [
@@ -853,6 +1344,7 @@
         "id": "2543a49168523d66",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "HumedadAireBaja",
         "rules": [
             {
@@ -869,7 +1361,7 @@
         "to": "",
         "reg": false,
         "x": 690,
-        "y": 680,
+        "y": 1160,
         "wires": [
             [
                 "786a217311156394"
@@ -880,6 +1372,7 @@
         "id": "2ff846eb2a211f83",
         "type": "ui_text",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "group": "5410245fc496bf6b",
         "order": 2,
         "width": 0,
@@ -893,14 +1386,15 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1200,
-        "y": 720,
+        "x": 1140,
+        "y": 1200,
         "wires": []
     },
     {
         "id": "b31ed7daf173c2aa",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "HumedadAireNormal",
         "rules": [
             {
@@ -917,7 +1411,7 @@
         "to": "",
         "reg": false,
         "x": 700,
-        "y": 720,
+        "y": 1200,
         "wires": [
             [
                 "786a217311156394"
@@ -928,6 +1422,7 @@
         "id": "786a217311156394",
         "type": "rbe",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -937,7 +1432,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 930,
-        "y": 720,
+        "y": 1200,
         "wires": [
             [
                 "2ff846eb2a211f83"
@@ -948,6 +1443,7 @@
         "id": "2fc9cf5da8bc68ed",
         "type": "telegram command",
         "z": "c6b192cd3951d272",
+        "g": "a78b62f74f454024",
         "name": "/infoEstado",
         "command": "/info",
         "description": "",
@@ -959,8 +1455,8 @@
         "useregex": false,
         "removeregexcommand": false,
         "outputs": 1,
-        "x": 380,
-        "y": 1640,
+        "x": 400,
+        "y": 3160,
         "wires": [
             [
                 "c3d57b8bc51f19d6"
@@ -971,16 +1467,17 @@
         "id": "c3d57b8bc51f19d6",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "a78b62f74f454024",
         "name": "Send info",
-        "func": "let tempAire = global.get('tempAire') || \"No disponible\";\nlet humedAire = global.get('humedAire') || \"No disponible\";\nlet gasCO2 = global.get('gasCO2') || \"No disponible\";\nlet lumin = global.get('luminosidad') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content:`Temperatura del aire es: ${tempAire}` + `°C\\n` + \n            `Humedad del aire es: ${humedAire}` + `%\\n` +\n            `Gas CO2 es: ${gasCO2}` + `ppm\\n` + \n            `Luminosidad es: ${lumin}`\n};\nreturn msg;",
+        "func": "let tempAire = global.get('tempAire') || \"No disponible\";\nlet humedAire = global.get('humedAire') || \"No disponible\";\nlet gasCO2 = global.get('gasCO2') || \"No disponible\";\nlet iluminancia = global.get('iluminancia') || \"No disponible\";\nmsg.payload = {\n    chatId: -4234464685,\n    type: \"message\",\n    content:`Temperatura del aire es: ${tempAire}` + `°C\\n` + \n            `Humedad del aire es: ${humedAire}` + `%\\n` +\n            `Gas CO2 es: ${gasCO2}` + `ppm\\n` + \n            `Iluminancia es: ${iluminancia}`\n};\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 1640,
+        "x": 580,
+        "y": 3160,
         "wires": [
             [
                 "c9d39aa7fbf281b4"
@@ -991,12 +1488,13 @@
         "id": "c9d39aa7fbf281b4",
         "type": "telegram sender",
         "z": "c6b192cd3951d272",
+        "g": "a78b62f74f454024",
         "name": "send info",
         "bot": "426ccebbe959ebd3",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 800,
-        "y": 1640,
+        "x": 760,
+        "y": 3160,
         "wires": [
             []
         ]
@@ -1005,8 +1503,9 @@
         "id": "ec10516e16bc6700",
         "type": "function",
         "z": "c6b192cd3951d272",
-        "name": "insert humedAire",
-        "func": "var lumin =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(lumin),\n}];\nreturn msg;",
+        "g": "065563a83aea76a9",
+        "name": "insert Iluminancia",
+        "func": "var iluminancia =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(iluminancia),\n}];\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -1014,7 +1513,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 1440,
+        "y": 2960,
         "wires": [
             [
                 "a93a79a33117d3b0"
@@ -1025,6 +1524,7 @@
         "id": "a93a79a33117d3b0",
         "type": "influxdb out",
         "z": "c6b192cd3951d272",
+        "g": "065563a83aea76a9",
         "influxdb": "3750e8ce.607c08",
         "name": "envio Luminosidad",
         "measurement": "luminosidad",
@@ -1035,15 +1535,16 @@
         "org": "GPA",
         "bucket": "MARTECH",
         "x": 730,
-        "y": 1440,
+        "y": 2960,
         "wires": []
     },
     {
         "id": "fbd2fd8465a99431",
         "type": "function",
         "z": "c6b192cd3951d272",
-        "name": "Check Luminosidad",
-        "func": "let lumin = parseFloat(msg.payload);\nif (lumin > 100) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La luminosidad es alta: ${lumin}` + `%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "g": "5d4654de03fccc2b",
+        "name": "Check Iluminancia",
+        "func": "let lumin = parseFloat(msg.payload);\nif (lumin > 100) {\n    msg.payload = {\n        chatId: -4234464685,\n        type: \"message\",\n        content: `¡Alerta! La iluminancia es alta: ${lumin}` + `%`\n    };\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -1051,7 +1552,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 1520,
+        "y": 2820,
         "wires": [
             [
                 "41f44b859f18ad9f"
@@ -1063,12 +1564,13 @@
         "id": "e4efb001963cc9f7",
         "type": "telegram sender",
         "z": "c6b192cd3951d272",
+        "g": "5d4654de03fccc2b",
         "name": "Notificación Alta Luminosidad",
         "bot": "426ccebbe959ebd3",
         "haserroroutput": false,
         "outputs": 1,
         "x": 900,
-        "y": 1520,
+        "y": 2820,
         "wires": [
             []
         ]
@@ -1077,6 +1579,7 @@
         "id": "41f44b859f18ad9f",
         "type": "rbe",
         "z": "c6b192cd3951d272",
+        "g": "5d4654de03fccc2b",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -1086,7 +1589,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 690,
-        "y": 1520,
+        "y": 2820,
         "wires": [
             [
                 "e4efb001963cc9f7"
@@ -1097,6 +1600,7 @@
         "id": "404c127724d58bd0",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "10c647bec5cb9f75",
         "name": "HumedadAireAlta",
         "rules": [
             {
@@ -1113,7 +1617,7 @@
         "to": "",
         "reg": false,
         "x": 690,
-        "y": 760,
+        "y": 1240,
         "wires": [
             [
                 "786a217311156394"
@@ -1124,6 +1628,7 @@
         "id": "902efbf279b1a232",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "d73890dcb537570f",
         "name": "TempAireAlta",
         "rules": [
             {
@@ -1151,6 +1656,7 @@
         "id": "dff31ccfe939f3e0",
         "type": "mqtt in",
         "z": "c6b192cd3951d272",
+        "g": "2f8b88135e91b627",
         "name": "",
         "topic": "webcam/photo",
         "qos": "0",
@@ -1160,8 +1666,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 2400,
+        "x": 160,
+        "y": 4500,
         "wires": [
             [
                 "7ec630f7dcd0506a"
@@ -1172,6 +1678,7 @@
         "id": "7ec630f7dcd0506a",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "2f8b88135e91b627",
         "name": "Convert to Image",
         "func": "msg.payload = \"data:image/jpeg;base64,\" + msg.payload;\nreturn msg;",
         "outputs": 1,
@@ -1179,8 +1686,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 2400,
+        "x": 360,
+        "y": 4500,
         "wires": [
             [
                 "153572750768f598"
@@ -1191,6 +1698,7 @@
         "id": "153572750768f598",
         "type": "ui_template",
         "z": "c6b192cd3951d272",
+        "g": "2f8b88135e91b627",
         "group": "23f9793d9068f76a",
         "name": "Display Image",
         "order": 2,
@@ -1202,8 +1710,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 540,
-        "y": 2400,
+        "x": 560,
+        "y": 4500,
         "wires": [
             []
         ]
@@ -1212,6 +1720,7 @@
         "id": "1c011f3afea1612f",
         "type": "ui_button",
         "z": "c6b192cd3951d272",
+        "g": "2f8b88135e91b627",
         "name": "",
         "group": "23f9793d9068f76a",
         "order": 1,
@@ -1228,8 +1737,8 @@
         "payloadType": "str",
         "topic": "webcam/capture",
         "topicType": "str",
-        "x": 130,
-        "y": 2340,
+        "x": 150,
+        "y": 4440,
         "wires": [
             [
                 "9c2050303de44216"
@@ -1240,13 +1749,14 @@
         "id": "9c2050303de44216",
         "type": "mqtt out",
         "z": "c6b192cd3951d272",
+        "g": "2f8b88135e91b627",
         "name": "",
         "topic": "webcam/capture",
         "qos": "0",
         "retain": "false",
         "broker": "79a8f123.8bfc",
-        "x": 340,
-        "y": 2340,
+        "x": 360,
+        "y": 4440,
         "wires": []
     },
     {
@@ -1261,15 +1771,16 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 140,
-        "y": 1020,
+        "x": 160,
+        "y": 2080,
         "wires": [
             [
                 "668f5c463f9a11ec",
                 "d2aa7c6008e114c7",
                 "45c68ac418784cea",
                 "8574b34f430e385b",
-                "2aef0768791ca8ae"
+                "2aef0768791ca8ae",
+                "96cbd0ba881730a6"
             ]
         ]
     },
@@ -1277,6 +1788,7 @@
         "id": "668f5c463f9a11ec",
         "type": "ui_gauge",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "Medidor GasCO2",
         "group": "1bad6d2d344b6bf8",
         "order": 2,
@@ -1298,13 +1810,14 @@
         "diff": false,
         "className": "",
         "x": 490,
-        "y": 960,
+        "y": 1880,
         "wires": []
     },
     {
         "id": "d2aa7c6008e114c7",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "bc2acbfded25fae1",
         "name": "",
         "rules": [
             {
@@ -1320,8 +1833,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 210,
-        "y": 940,
+        "x": 510,
+        "y": 2140,
         "wires": [
             []
         ]
@@ -1330,6 +1843,7 @@
         "id": "45c68ac418784cea",
         "type": "ui_chart",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "Chart GasCO2",
         "group": "1bad6d2d344b6bf8",
         "order": 11,
@@ -1364,8 +1878,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 760,
-        "y": 960,
+        "x": 780,
+        "y": 1880,
         "wires": [
             []
         ]
@@ -1374,6 +1888,7 @@
         "id": "8574b34f430e385b",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "c5b74d5bad13f999",
         "name": "insert GasCO2",
         "func": "var GasCO2 =  (msg.payload);\n\nmsg.payload = [{\n    sensor: parseFloat(GasCO2),\n}];\nreturn msg;",
         "outputs": 1,
@@ -1383,7 +1898,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 1160,
+        "y": 2340,
         "wires": [
             [
                 "48752b29f1825a73"
@@ -1394,6 +1909,7 @@
         "id": "48752b29f1825a73",
         "type": "influxdb out",
         "z": "c6b192cd3951d272",
+        "g": "c5b74d5bad13f999",
         "influxdb": "3750e8ce.607c08",
         "name": "envio GasCO2",
         "measurement": "GasCO2",
@@ -1404,13 +1920,14 @@
         "org": "GPA",
         "bucket": "MARTECH",
         "x": 720,
-        "y": 1160,
+        "y": 2340,
         "wires": []
     },
     {
         "id": "2aef0768791ca8ae",
         "type": "switch",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -1430,7 +1947,7 @@
         "repair": false,
         "outputs": 2,
         "x": 470,
-        "y": 1060,
+        "y": 1980,
         "wires": [
             [
                 "bc3c52dc5a28a3c6"
@@ -1444,6 +1961,7 @@
         "id": "bc3c52dc5a28a3c6",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "GasCO2Normal",
         "rules": [
             {
@@ -1459,8 +1977,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
-        "y": 1040,
+        "x": 700,
+        "y": 1960,
         "wires": [
             [
                 "8c3eb517a24030ef"
@@ -1471,6 +1989,7 @@
         "id": "086a675decf68982",
         "type": "ui_text",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "group": "1bad6d2d344b6bf8",
         "order": 12,
         "width": 0,
@@ -1484,14 +2003,15 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1200,
-        "y": 1060,
+        "x": 1120,
+        "y": 1980,
         "wires": []
     },
     {
         "id": "8c3eb517a24030ef",
         "type": "rbe",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -1500,8 +2020,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 950,
-        "y": 1060,
+        "x": 910,
+        "y": 1980,
         "wires": [
             [
                 "086a675decf68982"
@@ -1512,6 +2032,7 @@
         "id": "26a50237a340e964",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "faa587ae0be55fdf",
         "name": "GasCO2Alto",
         "rules": [
             {
@@ -1527,8 +2048,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
-        "y": 1080,
+        "x": 690,
+        "y": 2000,
         "wires": [
             [
                 "8c3eb517a24030ef"
@@ -1539,7 +2060,8 @@
         "id": "cfa8d4f30ba1fec7",
         "type": "ui_chart",
         "z": "c6b192cd3951d272",
-        "name": "Luminosidad",
+        "g": "2f83f7eeacf505c2",
+        "name": "Iluminancia",
         "group": "fefdc85aecc778de",
         "order": 10,
         "width": 0,
@@ -1574,7 +2096,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 770,
-        "y": 1280,
+        "y": 2520,
         "wires": [
             []
         ]
@@ -1583,8 +2105,9 @@
         "id": "a5c1fd5ddb580359",
         "type": "ui_switch",
         "z": "c6b192cd3951d272",
-        "name": "On/Off Coolers",
-        "label": "Coolers",
+        "g": "921d1786624ab6ac",
+        "name": "On/Off Extractor",
+        "label": "Extractor",
         "tooltip": "",
         "group": "c40c2b7590efb140",
         "order": 8,
@@ -1605,12 +2128,13 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 140,
-        "y": 1880,
+        "x": 160,
+        "y": 3600,
         "wires": [
             [
                 "eb75ed0390ecc6ba",
-                "5b5504029a97c09e"
+                "5b5504029a97c09e",
+                "eb52b61e7c45424d"
             ]
         ]
     },
@@ -1618,8 +2142,9 @@
         "id": "eb75ed0390ecc6ba",
         "type": "mqtt out",
         "z": "c6b192cd3951d272",
+        "g": "921d1786624ab6ac",
         "name": "",
-        "topic": "control/manual/coolers",
+        "topic": "control/manual/extractor",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1628,14 +2153,15 @@
         "correl": "",
         "expiry": "",
         "broker": "7472c28e84850c59",
-        "x": 440,
-        "y": 1880,
+        "x": 430,
+        "y": 3600,
         "wires": []
     },
     {
         "id": "1d3f9c62015efd27",
         "type": "mqtt out",
         "z": "c6b192cd3951d272",
+        "g": "ab24522b0344220b",
         "name": "",
         "topic": "control/manual/humidificador",
         "qos": "",
@@ -1646,14 +2172,15 @@
         "correl": "",
         "expiry": "",
         "broker": "7472c28e84850c59",
-        "x": 460,
-        "y": 1960,
+        "x": 480,
+        "y": 3860,
         "wires": []
     },
     {
         "id": "19e3f61eb27e8df6",
         "type": "ui_switch",
         "z": "c6b192cd3951d272",
+        "g": "ab24522b0344220b",
         "name": "On/Off Humidificador",
         "label": "Humidificador",
         "tooltip": "",
@@ -1676,8 +2203,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 160,
-        "y": 1960,
+        "x": 180,
+        "y": 3860,
         "wires": [
             [
                 "1d3f9c62015efd27",
@@ -1690,8 +2217,9 @@
         "id": "3fb05ac0fa11ed86",
         "type": "ui_switch",
         "z": "c6b192cd3951d272",
-        "name": "On/Off Peltier",
-        "label": "Peltier",
+        "g": "0189e7e7ad0625f7",
+        "name": "On/Off Peltier Frío",
+        "label": "Peltier Frío",
         "tooltip": "",
         "group": "32f1324aea54163f",
         "order": 2,
@@ -1712,13 +2240,14 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 140,
-        "y": 2140,
+        "x": 170,
+        "y": 4140,
         "wires": [
             [
                 "b3cd368ce8c9cc46",
                 "8d4a6aeb2a177c38",
-                "37238e36e0bd02cc"
+                "37238e36e0bd02cc",
+                "1854964b5f8ed73d"
             ]
         ]
     },
@@ -1726,8 +2255,9 @@
         "id": "b3cd368ce8c9cc46",
         "type": "mqtt out",
         "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
         "name": "",
-        "topic": "control/manual/peltier",
+        "topic": "control/manual/peltier/frio",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1736,14 +2266,15 @@
         "correl": "",
         "expiry": "",
         "broker": "7472c28e84850c59",
-        "x": 440,
-        "y": 2140,
+        "x": 470,
+        "y": 4140,
         "wires": []
     },
     {
         "id": "aade0187c214e10f",
         "type": "ui_statetrail",
         "z": "c6b192cd3951d272",
+        "g": "ab24522b0344220b",
         "group": "adb4fa0943ad5c0d",
         "order": 1,
         "width": 6,
@@ -1773,8 +2304,8 @@
         "legend": 1,
         "combine": true,
         "blanklabel": "Cargando datos...",
-        "x": 400,
-        "y": 2020,
+        "x": 420,
+        "y": 3920,
         "wires": [
             []
         ]
@@ -1783,6 +2314,7 @@
         "id": "26a8d0649a1602af",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "ab24522b0344220b",
         "name": "",
         "rules": [
             {
@@ -1798,8 +2330,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
-        "y": 2060,
+        "x": 330,
+        "y": 3800,
         "wires": [
             []
         ]
@@ -1808,6 +2340,7 @@
         "id": "087953da47dc5896",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "name": "Trigger Fan animate OFF",
         "func": "\nmsg.payload =\n    {\n        \"command\": \"trigger_animation\",\n        \"selector\": \"#rotate_fan\",\n        \"action\": \"stop\"\n    }\n\nreturn msg;",
         "outputs": 1,
@@ -1816,7 +2349,7 @@
         "finalize": "",
         "libs": [],
         "x": 1590,
-        "y": 1920,
+        "y": 3640,
         "wires": [
             [
                 "f67b86fa977d3d41"
@@ -1827,6 +2360,7 @@
         "id": "d98bf4fd34fb681e",
         "type": "function",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "name": "Trigger Fan animate ON",
         "func": "\nmsg.payload =\n    {\n        \"command\": \"trigger_animation\",\n        \"selector\": \"#rotate_fan\",\n        \"action\": \"start\"\n    }\n\nreturn msg;",
         "outputs": 1,
@@ -1835,7 +2369,7 @@
         "finalize": "",
         "libs": [],
         "x": 1590,
-        "y": 1840,
+        "y": 3560,
         "wires": [
             [
                 "f67b86fa977d3d41"
@@ -1846,6 +2380,7 @@
         "id": "f35701211969bd9b",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "name": "True",
         "rules": [
             {
@@ -1862,7 +2397,7 @@
         "to": "",
         "reg": false,
         "x": 1370,
-        "y": 1840,
+        "y": 3560,
         "wires": [
             [
                 "d98bf4fd34fb681e"
@@ -1873,6 +2408,7 @@
         "id": "ff3f9c2e55374589",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "name": "False",
         "rules": [
             {
@@ -1889,7 +2425,7 @@
         "to": "",
         "reg": false,
         "x": 1370,
-        "y": 1920,
+        "y": 3640,
         "wires": [
             [
                 "087953da47dc5896"
@@ -1900,6 +2436,7 @@
         "id": "5b5504029a97c09e",
         "type": "switch",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -1919,7 +2456,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1190,
-        "y": 1880,
+        "y": 3600,
         "wires": [
             [
                 "f35701211969bd9b"
@@ -1933,6 +2470,7 @@
         "id": "f67b86fa977d3d41",
         "type": "ui_svg_graphics",
         "z": "c6b192cd3951d272",
+        "g": "b5fd4945606720ee",
         "group": "c40c2b7590efb140",
         "order": 2,
         "width": 4,
@@ -1979,7 +2517,7 @@
         "cssString": "div.ui-svg svg{\n    color: var(--nr-dashboard-widgetColor);\n    fill: currentColor !important;\n}\ndiv.ui-svg path {\n    fill: inherit;\n}",
         "name": "",
         "x": 1860,
-        "y": 1880,
+        "y": 3600,
         "wires": [
             []
         ]
@@ -1988,16 +2526,17 @@
         "id": "b81e40473e328229",
         "type": "comment",
         "z": "c6b192cd3951d272",
-        "name": "Interfaz estado de Coolers",
+        "name": "INTERFAZ | EXTRACTOR",
         "info": "",
         "x": 1190,
-        "y": 1760,
+        "y": 3500,
         "wires": []
     },
     {
         "id": "8d4a6aeb2a177c38",
         "type": "ui_statetrail",
         "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
         "group": "32f1324aea54163f",
         "order": 1,
         "width": 6,
@@ -2027,8 +2566,8 @@
         "legend": 1,
         "combine": true,
         "blanklabel": "Cargando datos...",
-        "x": 400,
-        "y": 2200,
+        "x": 420,
+        "y": 4260,
         "wires": [
             []
         ]
@@ -2037,11 +2576,12 @@
         "id": "37238e36e0bd02cc",
         "type": "change",
         "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "peltierManual",
+                "p": "peltierFrioManual",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2052,11 +2592,690 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 470,
-        "y": 2240,
+        "x": 320,
+        "y": 4080,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "16ef81eb0d48b53b",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
+        "name": "",
+        "topic": "control/automatico/peltier/frio",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 800,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a5dfd96d7f509493",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
+        "name": "Check temperaturaAlta",
+        "func": "let temperatura = parseFloat(msg.payload);\nif (temperatura > 24) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 660,
+        "wires": [
+            [
+                "16ef81eb0d48b53b",
+                "28f60c0a791e390c"
+            ]
+        ]
+    },
+    {
+        "id": "6b5d55f6f2fcc648",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
+        "name": "Check temperaturaBaja",
+        "func": "let temperatura = parseFloat(msg.payload);\nif (temperatura < 20) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 760,
+        "wires": [
+            [
+                "e7524651801161b4",
+                "28f60c0a791e390c"
+            ]
+        ]
+    },
+    {
+        "id": "e7524651801161b4",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
+        "name": "",
+        "topic": "control/automatico/peltier/caliente",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 820,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d6d0651c1205b63f",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "INTERFAZ | TEMPERATURA AIRE",
+        "info": "",
+        "x": 500,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2b7f9805d11ce152",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "TEMPERATURA AIRE",
+        "info": "",
+        "x": 160,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "849bfc8122500c2f",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "LÓGICA | TEMPERATURA AIRE",
+        "info": "",
+        "x": 490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "237c526565552a48",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "BASE DE DATOS | TEMPERATURA AIRE",
+        "info": "",
+        "x": 520,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "32fb0c9a6d0766fd",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "INTERFAZ | HUMEDAD AIRE",
+        "info": "",
+        "x": 480,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "1c6162b1f3e0321a",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
+        "name": "",
+        "topic": "control/automatico/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 800,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "7dec2722c76df9f6",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
+        "name": "Check humedadAlta",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad > 95) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1440,
+        "wires": [
+            [
+                "1c6162b1f3e0321a"
+            ]
+        ]
+    },
+    {
+        "id": "855b68492a291292",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
+        "name": "Check humedadBaja",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad < 85) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1500,
+        "wires": [
+            [
+                "5404929779d7ea71",
+                "355a29e892050720"
+            ]
+        ]
+    },
+    {
+        "id": "5404929779d7ea71",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
+        "name": "",
+        "topic": "control/automatico/humidificador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 810,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "355a29e892050720",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "g": "1614c4fbd22f1911",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humidificadorAuto",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5dfdc590f2c839ba",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "LÓGICA | HUMEDAD AIRE",
+        "info": "",
+        "x": 470,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "8c0010d178ea059a",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "BASE DE DATOS | HUMEDAD AIRE",
+        "info": "",
+        "x": 500,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "8b3731dcbb98d69f",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "HUMEDAD AIRE",
+        "info": "",
+        "x": 140,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "05a7e56605f79faa",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "INTERFAZ | CALIDAD AIRE (CO2)",
+        "info": "",
+        "x": 500,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "5e22c3290865d7ba",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "bc2acbfded25fae1",
+        "name": "",
+        "topic": "control/automatico/extractor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 800,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "96cbd0ba881730a6",
+        "type": "function",
+        "z": "c6b192cd3951d272",
+        "g": "bc2acbfded25fae1",
+        "name": "Check CO2Alto",
+        "func": "let humedad = parseFloat(msg.payload);\nif (humedad > 95) {\n    return {payload: 'on'};\n} else {\n    return {payload: 'off'};\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 2200,
+        "wires": [
+            [
+                "5e22c3290865d7ba"
+            ]
+        ]
+    },
+    {
+        "id": "239b504054d05a70",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "LÓGICA | CO2",
+        "info": "",
+        "x": 440,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "5b7ba1d13bac7647",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "BASE DE DATOS | CO2",
+        "info": "",
+        "x": 470,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "c06a970253a4d957",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "INTERFAZ | ILUMINANCIA",
+        "info": "",
+        "x": 470,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "d74e979ec8644bcb",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "LÓGICA | ILUMINANCIA",
+        "info": "",
+        "x": 470,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "9cdf544502112b81",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "BASE DE DATOS | ILUMINANCIA",
+        "info": "",
+        "x": 500,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "04834618a76a7304",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "TELEGRAM | INFO",
+        "info": "",
+        "x": 130,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "a1c50697c1877140",
+        "type": "ui_switch",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "name": "On/Off Peltier Caliente",
+        "label": "Peltier Caliente",
+        "tooltip": "",
+        "group": "32f1324aea54163f",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 780,
+        "y": 4140,
+        "wires": [
+            [
+                "5e25a0392e250e6c",
+                "467666510c1ef4b4",
+                "cffd10300d6159e6",
+                "e9a48df2604a65dc"
+            ]
+        ]
+    },
+    {
+        "id": "5e25a0392e250e6c",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "name": "",
+        "topic": "control/manual/peltier/caliente",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 1090,
+        "y": 4140,
+        "wires": []
+    },
+    {
+        "id": "467666510c1ef4b4",
+        "type": "ui_statetrail",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "group": "32f1324aea54163f",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 1020,
+        "y": 4260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cffd10300d6159e6",
+        "type": "change",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "peltierCalienteManual",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 4080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a22520e7a1b7b19f",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "CELDAS PELTIER y VENTILADOR",
+        "info": "",
+        "x": 180,
+        "y": 4020,
+        "wires": []
+    },
+    {
+        "id": "ebaea3a7bc42cd4a",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "HUMIDIFICADOR",
+        "info": "",
+        "x": 130,
+        "y": 3740,
+        "wires": []
+    },
+    {
+        "id": "8f1999ef30307a6c",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "EXTRACTOR",
+        "info": "",
+        "x": 110,
+        "y": 3540,
+        "wires": []
+    },
+    {
+        "id": "0d7fe0aa9b7eaa96",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "TIRA LED",
+        "info": "",
+        "x": 80,
+        "y": 3380,
+        "wires": []
+    },
+    {
+        "id": "60fbf576303b1870",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "WEBCAM",
+        "info": "",
+        "x": 90,
+        "y": 4380,
+        "wires": []
+    },
+    {
+        "id": "28f60c0a791e390c",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "d69d4b5de513a26e",
+        "name": "",
+        "topic": "control/automatico/ventilador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 800,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "1854964b5f8ed73d",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "name": "",
+        "topic": "control/manual/ventilador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 470,
+        "y": 4200,
+        "wires": []
+    },
+    {
+        "id": "e9a48df2604a65dc",
+        "type": "mqtt out",
+        "z": "c6b192cd3951d272",
+        "g": "0189e7e7ad0625f7",
+        "name": "",
+        "topic": "control/manual/ventilador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7472c28e84850c59",
+        "x": 1070,
+        "y": 4200,
+        "wires": []
+    },
+    {
+        "id": "e3b636608c093c3d",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "CALIDAD AIRE",
+        "info": "",
+        "x": 140,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "324ef0f894e3926a",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "ILUMINANCIA",
+        "info": "",
+        "x": 130,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "eb52b61e7c45424d",
+        "type": "ui_statetrail",
+        "z": "c6b192cd3951d272",
+        "g": "921d1786624ab6ac",
+        "group": "adb4fa0943ad5c0d",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "",
+        "label": "",
+        "states": [
+            {
+                "state": "on",
+                "col": "#003b99",
+                "t": "str",
+                "label": "ON"
+            },
+            {
+                "state": "off",
+                "col": "#999999",
+                "t": "str",
+                "label": "OFF"
+            }
+        ],
+        "periodLimit": "30",
+        "periodLimitUnit": "60",
+        "timeformat": "HH:mm:ss",
+        "tickmarks": 4,
+        "exactticks": false,
+        "persist": false,
+        "legend": 1,
+        "combine": true,
+        "blanklabel": "Cargando datos...",
+        "x": 380,
+        "y": 3660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66cf517574665a77",
+        "type": "comment",
+        "z": "c6b192cd3951d272",
+        "name": "CONTROL AUTOMÁTICO",
+        "info": "",
+        "x": 150,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "1388fc8dc6fa06e0",

@@ -1,0 +1,2 @@
+- Censa la temperatura y controla el ventilador y las celdas de Peltier de forma
+manual o automática mediante MQTT.

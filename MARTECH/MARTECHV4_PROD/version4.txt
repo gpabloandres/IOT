@@ -1,0 +1,5 @@
+- Control PID: Se implementaron cinco controladores PID para el humidificador, extractor,
+ventilador y las dos celdas Peltier.
+- Lógica de control PID: Se ajustan los Setpoint correspondientes a cada actuador, y se
+computa el valor de salida en función de la variable de entrada (temperatura o humedad).
+- Actuadores: Se implementa el control en los pines correspondientes usando analogWrite().
