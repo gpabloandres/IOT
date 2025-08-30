@@ -8,7 +8,7 @@
 // Define el tipo de sensor DHT que estás usando (DHT11 o DHT22)
 #define DHTTYPE DHT11 
 // Define el pin donde está conectado el sensor DHT. D4 en la mayoría de las placas ESP8266 es el pin 2.
-#define DHTPin D4 
+#define DHTPin D3 
 
 // Inicializa una instancia del sensor DHT
 DHT dht(DHTPin, DHTTYPE); 
@@ -16,11 +16,11 @@ DHT dht(DHTPin, DHTTYPE);
 // --- Configuración de la red y el servidor MQTT ---
 
 // Reemplaza con el nombre de tu red WiFi
-const char* ssid = "ASP";
+const char* ssid = "MOVISTAR WIFI4497";
 // Reemplaza con la contraseña de tu red WiFi
-const char* password = "ASP110110";
+const char* password = "689ms4283kxz7ge";
 // Reemplaza con la dirección IP o dominio de tu servidor MQTT
-const char* mqtt_server = "192.168.1.12"; 
+const char* mqtt_server = "10.50.139.113"; 
 
 // Cliente WiFi para la conexión del ESP8266
 WiFiClient espClient;
