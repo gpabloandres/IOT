@@ -1,32 +1,75 @@
-// Librerías necesarias para la funcionalidad del ESP8266
+// Librerías necesarias para la funcionalidad del ESP8266 y los sensores
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include "DHT.h"
+
+// --- Configuración del hardware ---
+
+// Define el tipo de sensor DHT que estás usando (DHT11 o DHT22)
+#define DHTTYPE DHT11 
+// Define el pin donde está conectado el sensor DHT. D4 en la mayoría de las placas ESP8266 es el pin 2.
+#define DHTPin D3 
+
+// Inicializa una instancia del sensor DHT
+DHT dht(DHTPin, DHTTYPE); 
 
 // --- Configuración de la red y el servidor MQTT ---
 
 // Reemplaza con el nombre de tu red WiFi
-const char* ssid = "MOVISTAR WIFI4497"; 
+const char* ssid = "MOVISTAR WIFI4497";
 // Reemplaza con la contraseña de tu red WiFi
-const char* password = "689ms4283kxz7ge"; 
+const char* password = "689ms4283kxz7ge";
 // Reemplaza con la dirección IP o dominio de tu servidor MQTT
 const char* mqtt_server = "10.50.139.113"; 
-
-// --- Variables globales y de estado ---
 
 // Cliente WiFi para la conexión del ESP8266
 WiFiClient espClient;
 // Cliente MQTT que utiliza el cliente WiFi
 PubSubClient client(espClient);
 
-// Pin analógico donde está conectado el sensor LDR
-const int pinLDR = A0;
+// --- Variables para el control de tiempo no bloqueante ---
 
-// Variables para el control de tiempo no bloqueante
+// Guarda el último tiempo de publicación de datos
 unsigned long lastMsg = 0;
-// Intervalo de tiempo para enviar datos (en milisegundos)
-const int interval = 500; 
+// Intervalo de tiempo para enviar datos (en milisegundos), 10 segundos
+const unsigned long publishInterval = 10000;
 
 // --- Funciones principales ---
+
+// Maneja los mensajes entrantes del servidor MQTT
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensaje recibido en el tópico [");
+  Serial.print(topic);
+  Serial.print("]: ");
+  
+  // Imprime el contenido del mensaje
+  for (unsigned int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+}
+
+// Se ejecuta si la conexión MQTT se pierde para intentar reconectar
+void reconnect() {
+  while (!client.connected()) {
+    Serial.println("Conexión MQTT perdida. Intentando reconectar...");
+    
+    // Intenta conectar con un ID de cliente único. "ESP8266Client" es el ID por defecto.
+    if (client.connect("ESP8266Client")) {
+      Serial.println("¡Reconectado a MQTT!");
+      // Publica un mensaje de confirmación al conectar
+      client.publish("event", "ESP8266 conectado y publicando datos");
+      // Se suscribe a un tópico para recibir comandos, si es necesario
+      // client.subscribe("cmd/dht");
+    } else {
+      Serial.print("Fallo en la reconexión. Código de estado: ");
+      Serial.print(client.state());
+      Serial.println(". Reintentando en 5 segundos...");
+      // Espera 5 segundos antes de reintentar
+      delay(5000);
+    }
+  }
+}
 
 // Configura y establece la conexión WiFi
 void setup_wifi() {
@@ -37,7 +80,6 @@ void setup_wifi() {
 
   WiFi.begin(ssid, password);
 
-  // Bucle de espera hasta que la conexión WiFi sea exitosa
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -49,38 +91,21 @@ void setup_wifi() {
   Serial.println(WiFi.localIP());
 }
 
-// Se ejecuta si la conexión MQTT se pierde para intentar reconectar
-void reconnect() {
-  // Bucle para intentar reconectar
-  while (!client.connected()) {
-    Serial.println("Conexión MQTT perdida. Reconectando...");
-    // Intentar conectar con un ID de cliente único
-    // Puedes cambiar "ESP8266Client" por algo más específico
-    if (client.connect("ESP8266Client")) {
-      Serial.println("¡Reconectado a MQTT!");
-      // Opcional: suscribe un tópico al reconectar
-      //client.subscribe("sensor/ldr");
-    } else {
-      Serial.print("Fallo en la reconexión. Código de error: ");
-      Serial.print(client.state());
-      Serial.println(". Reintentando en 5 segundos...");
-      // Espera 5 segundos antes de reintentar
-      delay(5000);
-    }
-  }
-}
-
 // --- Rutinas de configuración (setup) y bucle principal (loop) ---
 
 void setup() {
   // Inicia la comunicación serial para depuración
   Serial.begin(115200);
+  // Inicia el sensor DHT
+  dht.begin();
   
   // Llama a la función para conectar a WiFi
   setup_wifi();
   
   // Establece la dirección del servidor MQTT y el puerto (1883 es el puerto por defecto)
   client.setServer(mqtt_server, 1883);
+  // Asigna la función de callback para manejar los mensajes MQTT
+  client.setCallback(callback);
 }
 
 void loop() {
@@ -91,23 +116,37 @@ void loop() {
   // Permite que el cliente MQTT procese mensajes entrantes y mantenga la conexión
   client.loop();
 
-  // Control de tiempo para envío de mensajes no bloqueante
+  // Obtiene el tiempo actual
   unsigned long now = millis();
-  if (now - lastMsg > interval) {
+  
+  // Condición para publicar datos cada 10 segundos de forma no bloqueante
+  if (now - lastMsg >= publishInterval) {
     lastMsg = now;
 
-    // Lectura del valor analógico del sensor LDR
-    int valorLDR = analogRead(pinLDR);
+    // Leer la humedad y la temperatura del sensor DHT11
+    float humedad = dht.readHumidity();
+    float temperaturaC = dht.readTemperature();
+
+    // Verificación de errores en la lectura del sensor
+    if (isnan(humedad) || isnan(temperaturaC)) {
+      Serial.println("¡Error al leer del sensor DHT!");
+      return;
+    }
+
+    // Convertir los valores a cadena de texto para publicar
+    String tempPayload = String(temperaturaC, 2); // 2 decimales para la temperatura
+    String humPayload = String(humedad, 2);   // 2 decimales para la humedad
+
+    // Publicar valores de temperatura y humedad en sus respectivos tópicos
+    client.publish("tempaire/sensordht11", tempPayload.c_str());
+    client.publish("humidity/sensordht11", humPayload.c_str());
     
-    // Convierte el valor a una cadena de texto para enviar
-    String payload = String(valorLDR);
-
-    // Publica el valor en el tópico "luz/sensorldr"
-    // El .c_str() convierte la String de C++ a una cadena de caracteres estilo C
-    client.publish("luz/sensorldr", payload.c_str());
-
-    // Imprime el valor en el monitor serial para depuración
-    Serial.print("Publicando valor LDR: ");
-    Serial.println(valorLDR);
+    // Imprime los valores en el monitor serial para depuración
+    Serial.print("Humedad: ");
+    Serial.print(humedad);
+    Serial.println(" %");
+    Serial.print("Temperatura: ");
+    Serial.print(temperaturaC);
+    Serial.println(" °C");
   }
 }
